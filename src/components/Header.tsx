@@ -5,6 +5,7 @@ import MyHover from './UI/MyHover';
 import LikesHover from './UI/LikesHover/LikesHover';
 import { IProduct } from '../types/types';
 import MyInput from './UI/MyInput';
+import logo from '../imgs/logo2.png'
 
 interface HeaderProps {
   shoes: IProduct[],
@@ -53,7 +54,11 @@ function Header(
               <svg onClick={() => setIsNavbarShown(true)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-3">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
               </svg>
-              <Link to='/' className='headerLink name mobile'>Sneaker Biba</Link>
+              {/* <Link to='/' className='headerLink name mobile'>Sneaker Biba</Link> */}
+              <div className='logoLink mobile'>
+                <img src={logo} alt='logo'></img>
+                <Link to='/'></Link>
+              </div>
             </div>
             <div className='mobileHeaderRight'>
               <MyInput
@@ -89,7 +94,11 @@ function Header(
         <header>
           <div className='upperHeader'>
 
-            <Link to='/' className='headerLink name'>Sneaker Biba</Link>
+            {/* <Link to='/' className='headerLink name'>Sneaker Biba</Link> */}
+            <div className='logoLink'>
+              <img src={logo} alt='logo'></img>
+              <Link to='/'></Link>
+            </div>
             <div className='upperHeaderRight'>
               {/* <Link to='/About' className='headerLink'>About</Link> */}
               <Link to='/News' className='headerLink'>News</Link>

@@ -68,6 +68,39 @@ body.sizeGuideShown {
     width: 100%;
 }
 
+.homeTop h1 {
+    text-align: center;
+    margin: 2em auto .5em;
+}
+
+.ShopNow {
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.ShopNow a {
+    width: 8em;
+    height: 2em;
+    font-size: 1.3em;
+    background: transparent;
+    outline: none;
+    border-radius: 5em;
+    border: .01em solid rgb(142, 140, 140);
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ShopNow a:hover {
+    border-color: rgb(39, 39, 39);
+    color: black;
+}
 
 .homeImg {
     max-width: 100%;
@@ -87,14 +120,39 @@ header {
 }
 
 .upperHeader {
-    background-color: rgb(56, 56, 56);
+    /* background-color: rgb(56, 56, 56); */
+    background-color: black;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 8vh;
+    height: 8vh;
     padding: 0 1em;
     border-top-right-radius: 1vmax;
     border-top-left-radius: 1vmax;
+}
+
+.logoLink {
+    position: relative;
+    height: 100%;
+    width: 30vw;
+}
+
+.logoLink a {
+    position: absolute;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+}
+
+.logoLink img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.logoLink.mobile {
+    height: 5vh;
+    width: 50vw;
 }
 
 .upperHeaderCategories {
@@ -511,14 +569,14 @@ ul {
     min-width: 8em;
     min-height: 4vh;
     margin-top: 3em;
-    background-color: lightgray;
+    background-color: transparent;
     cursor: pointer;
-    border: 2px solid gray;
+    border: .01em solid rgb(140, 140, 140);
     border-radius: 1vmax;
 }
 
 .productDescription button:hover {
-    background-color: gray;
+    border-color: rgb(39, 39, 39);
 }
 
 .mobileBagProduct {
@@ -1138,15 +1196,15 @@ input {
     width: 80%;
     min-height: 4vh;
     margin-top: 5em;
-    background-color: lightgray;
+    background-color: transparent;
     cursor: pointer;
-    border: 2px solid gray;
+    border: .01em solid rgb(140, 140, 140);
     border-radius: 1vmax;
     margin-bottom: 1em;
 }
 
 .orderPrice button:hover {
-    background-color: gray;
+    border-color: rgb(39, 39, 39);
 }
 
 .recomendations {
@@ -1189,39 +1247,71 @@ input {
 
 .mainNews {
     display: flex;
-    flex-wrap: wrap;
-    gap: 2em;
-    margin: 2em;
+    margin-bottom: 20px;
+}
 
+.imgWrappper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid black;  
 }
 
 .mainNews img {
-    flex: 1 0 21%;
-    max-width: 300px;
-    min-height: 380px;
-    margin-bottom: 20px;
+    height: 100%;
     position: relative;
     cursor: pointer;
+}
+
+.mainNews img:hover {
+    transform: scale(1.1);
+    transition: transform .4s;
 }
 
 .footerContainer {
     background-color: rgb(224, 224, 224);
     height: 35vh;
     font-size: 1.1rem;
-    padding: 3em;
     display: flex;
-    gap: 3em;
+    flex-direction: column;
     border-bottom-left-radius: 1vmax;
     border-bottom-right-radius: 1vmax;
 }
 
-.footerContainer>div>p,
+.footerColumns {
+    width: 100%;
+    height: 80%;
+    display: flex;
+}
+
+.footerColumns>div>p,
 b {
     cursor: pointer;
     font-size: 0.8em;
 }
 
+.footerColumn {
+    width: calc(1100% / 3);
+    border: 1px solid black;
+    padding: 1.5em;
+}
+
+.footerDown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em;
+    height: 20%;
+}
+
+.footerDown p {
+    font-size: .6em;
+    color: rgb(87, 87, 87);
+}
+
 header>.mobileHeaderContent {
+    background-color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1231,6 +1321,10 @@ header>.mobileHeaderContent {
 .mobileHeaderLeft {
     display: flex;
     align-items: center;
+}
+
+.mobileHeaderLeft svg {
+    color: white;
 }
 
 .w-6.h-3 {
@@ -1248,7 +1342,7 @@ header>.mobileHeaderContent {
 .w-6.h-4 {
     border: none;
     width: 1.2em;
-    color: black;
+    color: white;
 }
 
 nav {
@@ -1272,11 +1366,16 @@ nav {
 }
 
 .navTop {
+    background-color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 3.3em;
-    margin: .5em;
+    padding: .5em;
+}
+
+.navTop button>.w-6.h-10 {
+    color: white;
 }
 
 .navTop button {
@@ -1427,6 +1526,10 @@ nav {
     border: none;
 }
 
+.mobileInput svg {
+    color: white;
+}
+
 .w-6.h-13 {
     border: none;
     width: 1.5em;
@@ -1510,6 +1613,11 @@ nav {
 }
 
 @media (max-width: 950px) {
+
+    body {
+        background: rgb(224, 224, 224);
+    }
+
     .sizeGuideContent {
         width: 80vw;
         height: max-content;
@@ -1530,7 +1638,23 @@ nav {
         height: 100%;
     }
 
-    /* .navSection a{
-        font-size: 1.3em;
-    }  */
+    .footerDown{
+        height: 3em;
+    }
+
+    .footerDown>.logoLink {
+        width: 45vw;
+        height: 1.7em;
+    }
+
+    .mainNews {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1em;
+    }
+
+    .mainNews img {
+        width: 90vw;
+        margin: 0;
+    }
 }
