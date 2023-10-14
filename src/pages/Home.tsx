@@ -15,7 +15,7 @@ function Home() {
       <img src={img2} alt='img' className='homeImg'></img>
       <img src={img1} alt='img' className='homeImg'></img>
       <img src={img3} alt='img' className='homeImg'></img>
-      <Link to='/News' className='homeLink'>The style feed</Link>
+      <Link to='/News' className='homeLink'>The style cdfeed</Link>
       <div className='mainNews'>
         <img src={news1} alt='news' className='new'></img>
         <img src={news2} alt='news' className='new'></img>
