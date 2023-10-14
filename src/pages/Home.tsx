@@ -7,7 +7,8 @@ import news1 from '../imgs/news/new1.png'
 import news2 from '../imgs/news/new2.png'
 import news3 from '../imgs/news/new3.png'
 import news4 from '../imgs/news/new4.png'
-// import bunch from '../imgs/'
+import bunch from '../imgs/bunchOfShoes.png'
+import clothes from '../imgs/clothes.png';
 import { Link } from 'react-router-dom';
 
 function Home() {
@@ -25,12 +26,20 @@ function Home() {
 
       <div className='mainGrid'>
         <div className='mainGridShoes'>
-          <img></img>
+          <img src={bunch} alt='bunchOfShoes'></img>
           <p>Shoes</p>
           <Link to='/MansShoes'></Link>
         </div>
-        <div className='mainGridClothes'></div>
-        <div className='mainGridAccesories'></div>
+        <div className='mainGridClothes'>
+          <img src={clothes} alt='bunchOfShoes'></img>
+          <p>Clothes</p>
+          <Link to='/Clothes'></Link>
+        </div>
+        <div className='mainGridAccesories'>
+          <img src={bunch} alt='bunchOfShoes'></img>
+          <p>Accesories</p>
+          <Link to='/Accesories'></Link>
+        </div>
       </div>
 
       <div className='styleFeed'>
@@ -48,7 +57,7 @@ function Home() {
           <div className='imgWrappper'>
             <img src={news4} alt='news' className='new'></img>
           </div>
-         
+
         </div>
       </div>
     </div>
