@@ -3,6 +3,7 @@ import { search } from '../hooks/UseProducts'
 import { IProduct } from '../types/types'
 import MobileSearchedProductItem from './MobileSearchedProductItem'
 
+
 interface MobileSearchWindowProps {
     products: IProduct[],
     value: string,
@@ -41,6 +42,8 @@ function MobileSearchWindow({ products, value, setState, setIsSearchWindowShown 
         localStorage.setItem('SEARCH_HISTORY', JSON.stringify(searchHistory))
     }, [searchHistory])
 
+
+
     return (
         <div className='mobileInputContainer'>
             <div className='mobileInputContent'>
@@ -71,15 +74,17 @@ function MobileSearchWindow({ products, value, setState, setIsSearchWindowShown 
 
                                 <p>{history}</p>
                             </div>
-                            {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-10">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg> */}
+                            
                         </div>
                     ))}
                 </div>
                 <div className='mobileSearchedProducts'>
                     {sortedProducts.map(product => (
-                        <MobileSearchedProductItem product={product} />
+                        <MobileSearchedProductItem
+                            key={product.id}
+                            product={product}
+                            setIsSearchWindowShown={setIsSearchWindowShown}
+                        />
                     ))}
                 </div>
             </div>

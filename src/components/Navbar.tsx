@@ -32,9 +32,9 @@ function Navbar({ setIsNavbarShown }: NavbarProps) {
 
                 <div className='navContentUpper'>
                     <div className='navTop'>
-                        <h2>Sneaker Biba</h2>
+                        <h2>Sneaker Street</h2>
                         <button onClick={() => setIsNavbarShown(false)}>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="icon">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
@@ -58,10 +58,7 @@ function Navbar({ setIsNavbarShown }: NavbarProps) {
                             <Link to='/Accesories' className='navSectionsLink' onClick={() => setIsNavbarShown(false)} >Accesories</Link>
                             <img src={accesories} alt='shoe'></img>
                         </div>
-                        {/* <div className='navSection'>
-                            <Link to='/Sales' className='navSectionsLink' onClick={() => setIsNavbarShown(false)} >Sales</Link>
-                            <img src={sale} alt='shoe'></img>
-                        </div> */}
+                      
                         <div className='navSection'>
                             <Link to='/News' className='navSectionsLink' onClick={() => setIsNavbarShown(false)} >The Style Feed</Link>
                             <img src={styleFeed} alt='shoe'></img>

@@ -40,8 +40,8 @@
 body {
     max-width: 100%;
     min-height: 100vh;
-    background: rgb(238, 174, 202);
-    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    /* background: rgb(238, 174, 202);
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%); */
 }
 
 body.sizeGuideShown {
@@ -56,17 +56,17 @@ body.sizeGuideShown {
 .wrapper {
     position: absolute;
     z-index: 1;
-    width: 92vw;
-    margin: 4vw;
-    background-color: white;
-    border-radius: 1vmax;
+    width: 100%;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+    /* border-radius: 1vmax; */
 }
 
-.wrapper.mobile {
+/* .wrapper.mobile {
     margin: 0;
     border-radius: 0;
     width: 100%;
-}
+} */
 
 .homeTop h1 {
     text-align: center;
@@ -122,7 +122,7 @@ body.sizeGuideShown {
     grid-area: shoes;
     position: relative;
     width: 100%;
-    height: 80vh;
+    height: max-content;
 }
 
 .mainGridClothes {
@@ -179,112 +179,77 @@ body.sizeGuideShown {
 .mainGridAccesories img {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: auto;
     border-radius: .6em;
 }
 
-header p {
-    cursor: pointer;
-}
-
 header {
-    /* min-height: 16vh; */
-    max-height: 18vh;
-    font-size: 1.1rem;
-    padding: 0;
-    margin-bottom: 0;
-}
-
-.upperHeader {
-    /* background-color: rgb(56, 56, 56); */
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 8vh;
-    padding: 0 1em;
-    border-top-right-radius: 1vmax;
-    border-top-left-radius: 1vmax;
-}
-
-.logoLink {
-    position: relative;
-    height: 100%;
-    width: 30vw;
-}
-
-.logoLink a {
-    position: absolute;
-    z-index: 2;
-    height: 100%;
-    width: 100%;
-}
-
-.logoLink img {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
-
-.logoLink.mobile {
-    height: 5vh;
-    width: 50vw;
-}
-
-.upperHeaderCategories {
-    display: flex;
-    justify-content: space-between;
-    gap: .5em;
-}
-
-.upperHeaderRight {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: .5em;
-}
-
-.downHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgb(125, 125, 125);
-    min-height: 8vh;
+    min-height: 10vh;
     padding: 0 1em;
 }
 
-.downHeaderCategories {
-    display: flex;
-    justify-content: space-between;
-    gap: .5em;
-}
-
-.downHeaderRight {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: .5em;
-}
-
-.headerLink {
+header a {
     font: MutatorSans sans-serif;
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
-.headerLink:hover {
+header a:hover {
     color: rgb(143, 143, 143);
 }
 
-.headerLink.name {
-    font-weight: 600;
-    font-size: 1.5rem;
+.headerFirst {
+    display: flex;
+    align-items: center;
 }
 
-.headerLink.name.mobile {
+.headerFirst a {
+    font-size: 2em;
     font-weight: 600;
-    font-size: 1.5rem;
+}
+
+.headerSecond {
+    display: none;
+
+}
+
+.headerSecond a {
+    font-size: 1.2em;
+}
+
+.headerThird {
+    display: flex;
+    gap: .5em;
+    align-items: center;
+}
+
+.headerBag {
+    width: 2em;
+    height: 2em;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.headerBag a {
+    position: absolute;
+    z-index: 2;
+    width: 2em;
+    height: 2em;
+}
+
+.headerBag svg {
+    position: absolute;
+}
+
+.icon {
     color: black;
+    width: 2em;
+    height: 2em;
 }
 
 .homeLink {
@@ -294,15 +259,6 @@ header {
     font-size: 3em;
     font-weight: 600;
     margin-left: .5em;
-}
-
-.downHeaderP {
-    color: white;
-    text-decoration: none;
-}
-
-.downHeaderP:hover {
-    color: black;
 }
 
 .myHover {
@@ -437,29 +393,38 @@ p {
     color: red;
 }
 
-.product {
-    flex: 1 0 21%;
-    max-width: 20em;
-    max-height: 22em;
-    margin-bottom: 1em;
-    position: relative;
-    cursor: pointer;
+.productList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    margin: 2em;
+    margin-bottom: 5em;
 }
 
-.product.mobile {
-    width: 30vw;
+.product {
+    flex: 1 0 45%;
+    max-width: 15em;
+    min-width: 8em;
     min-height: 5em;
-    margin-bottom: 0;
+}
+
+.productContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 22em;
+    border-radius: 2vmax;
+    margin-top: 10px;
+    padding: .5em;
 }
 
 .productContent:hover {
-    /* box-shadow: 3px 3px rgb(210, 210, 210); */
     border: 2px solid rgb(210, 210, 210);
     border-radius: 2vmax;
 }
 
 center img {
-    max-width: 15em;
+    max-width: 100%;
     height: auto;
     display: flex;
     align-items: center;
@@ -467,27 +432,15 @@ center img {
     margin: 0 auto;
 }
 
-.productContent {
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: space-around; */
-    width: 100%;
-    min-height: 22em;
-    /* max-height: 22em; */
-    /* border: 2px solid rgb(210, 210, 210);
-    border-radius: 2vmax; */
-    /* margin-top: 10px;
-    padding: 10px; */
-}
+
 
 .price {
-    display: flex;
-    margin-left: 1em;
+    color: black;
 }
 
 .salePrice {
     display: flex;
+    gap: .4em;
 }
 
 .salePriceP {
@@ -505,9 +458,11 @@ center img {
 }
 
 .onHover {
+    height: 4em;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-end;
 }
 
 ul {
@@ -637,10 +592,6 @@ ul {
     margin-left: 1em;
 }
 
-.productDescription p {
-    margin: 5px;
-}
-
 .productDescription button {
     min-width: 8em;
     min-height: 4vh;
@@ -701,11 +652,25 @@ ul {
 }
 
 .shoePageProduct {
-    max-height: 80vh;
+    /* max-height: 80vh; */
     display: flex;
-    justify-content: space-between;
+    /* gap: 10em; */
+    /* justify-content: space-between; */
     /* align-items: center; */
     padding-top: 3em;
+}
+
+.shoePageLeft{
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10em;
+    margin: 5em;
+    /* margin-left: 5em; */
+}
+
+.shoePageDescription h2{
+    margin-bottom: 1em;
 }
 
 .shoePageProductContent {
@@ -745,7 +710,7 @@ ul {
 
 .shoePageSlider {
     display: flex;
-    margin-left: 5em;
+    
 }
 
 .shoePageSliderCarousel {
@@ -766,7 +731,9 @@ ul {
 }
 
 .shoePageSliderSlide {
-    width: 30em;
+    width: 100%;
+    max-width: 30em;
+    height: auto;
     position: absolute;
     display: none;
 }
@@ -1208,12 +1175,7 @@ input {
     margin: 2em;
 } */
 
-.productList {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2em;
-    margin: 2em;
-}
+
 
 .bagTop {
     display: flex;
@@ -1346,13 +1308,13 @@ input {
 }
 
 .footerContainer {
-    background-color: rgb(224, 224, 224);
+    background-color: rgb(54, 54, 54);
     height: 35vh;
     font-size: 1.1rem;
     display: flex;
     flex-direction: column;
-    border-bottom-left-radius: 1vmax;
-    border-bottom-right-radius: 1vmax;
+    /* border-bottom-left-radius: 1vmax;
+    border-bottom-right-radius: 1vmax; */
 }
 
 .footerColumns {
@@ -1365,11 +1327,12 @@ input {
 b {
     cursor: pointer;
     font-size: 0.8em;
+    color: white;
 }
 
 .footerColumn {
     width: calc(1100% / 3);
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 1.5em;
 }
 
@@ -1383,24 +1346,7 @@ b {
 
 .footerDown p {
     font-size: .6em;
-    color: rgb(87, 87, 87);
-}
-
-header>.mobileHeaderContent {
-    background-color: black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-height: 10em;
-}
-
-.mobileHeaderLeft {
-    display: flex;
-    align-items: center;
-}
-
-.mobileHeaderLeft svg {
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 .w-6.h-3 {
@@ -1408,18 +1354,6 @@ header>.mobileHeaderContent {
     width: 2em;
 }
 
-.mobileHeaderRight {
-    display: flex;
-    align-items: center;
-    gap: .5em;
-    padding-right: .3em;
-}
-
-.w-6.h-4 {
-    border: none;
-    width: 1.2em;
-    color: white;
-}
 
 nav {
     position: fixed;
@@ -1442,7 +1376,7 @@ nav {
 }
 
 .navTop {
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1450,14 +1384,12 @@ nav {
     padding: .5em;
 }
 
-.navTop button>.w-6.h-10 {
-    color: white;
-}
-
 .navTop button {
     outline: none;
     border: none;
     background: none;
+    width: 2em;
+    height: 2em;
 }
 
 .navLocation {
@@ -1602,8 +1534,14 @@ nav {
     border: none;
 }
 
-.mobileInput svg {
-    color: white;
+.mobileInput {
+    display: flex;
+    align-items: center;
+}
+
+.mobileInput button {
+    width: 2em;
+    height: 2em;
 }
 
 .w-6.h-13 {
@@ -1625,13 +1563,6 @@ nav {
 
 .mobileInput button:hover {
     cursor: pointer;
-}
-
-.w-6.h-11 {
-    margin-top: .3em;
-    border: none;
-    width: 1.5em;
-
 }
 
 .searchHistory {
@@ -1681,6 +1612,7 @@ nav {
     /* margin-top: .1em; */
     width: 100%;
     max-height: 5em;
+    cursor: pointer;
 }
 
 .mobileSearchedProductItem img {
@@ -1688,6 +1620,27 @@ nav {
     height: auto;
 }
 
+@media (min-width: 900px) {
+    .headerFirst svg {
+        display: none;
+    }
+
+    .headerSecond {
+        display: flex;
+        gap: 3em;
+    }
+
+    .product {
+        flex: 1 0 21%;
+        max-width: 22em;
+        max-height: 22em;
+        margin-bottom: 1em;
+        position: relative;
+        cursor: pointer;
+    }
+}
+
+/* 
 @media (max-width: 950px) {
 
     body {
@@ -1718,10 +1671,6 @@ nav {
         height: 3em;
     }
 
-    .footerDown>.logoLink {
-        width: 45vw;
-        height: 1.7em;
-    }
 
     .mainNews {
         flex-direction: column;
@@ -1745,11 +1694,11 @@ nav {
 
     }
 
-    .mainGridShoes{
+    .mainGridShoes {
         height: 50vh;
     }
 
-    .mainGridClothes{
+    .mainGridClothes {
         height: 20vh;
     }
-}
+} */

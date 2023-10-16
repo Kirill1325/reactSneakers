@@ -48,7 +48,7 @@ function ProductPage({ setShoes, setAllClothes, setAllAccesories, isMobile, isSi
 
     const handleSizeChoice = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         const s = Number((e.target as HTMLButtonElement).value)
-        setChosenSize(product.sizes.find(size => size.size == s)) 
+        setChosenSize(product.sizes.find(size => size.size == s))
     }
 
     const handleAddToBag = () => {
@@ -146,7 +146,13 @@ function ProductPage({ setShoes, setAllClothes, setAllAccesories, isMobile, isSi
                 {isSizeGuideShown &&
                     <SizeGuide product={product} setIsSizeGuideShown={setIsSizeGuideShown} />
                 }
-                <ShoePageSlider slides={product.sliderPics} />
+                <div className='shoePageLeft'>
+                    <ShoePageSlider slides={product.sliderPics} />
+                    <div className='shoePageDescription'>
+                        <h2>Description</h2>
+                        <p>The {product.brandName} {product.model} is a classic and iconic sneaker. It is known for its distinct design and comfortable cushioning, making it a favorite among sneaker enthusiasts and athletes alike.<br /> The {product.brandName} {product.model} features a combination of synthetic and leather materials in its upper, providing durability and a stylish look. <br />Whether you're using them for casual everyday wear or engaging in sports activities, the {product.brandName} {product.model} offers a blend of style, comfort, and performance that has made it a beloved sneaker for generations. </p>
+                    </div>
+                </div>
                 <div className='shoePageProductContent'>
                     <h1 style={{ margin: '10px' }}>{product.brandName} {product.model}</h1>
                     {product.onSale

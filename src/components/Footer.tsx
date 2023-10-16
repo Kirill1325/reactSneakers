@@ -30,15 +30,6 @@ function Footer() {
                     <p>New Balance</p>
                 </div>
             </div>
-
-            <div className='footerDown'>
-                <div className='logoLink'>
-                    <img src={logo} alt='logo'></img>
-                    <Link to='/'></Link>
-                </div>
-                <p>@ 2023 SNEAKERBEE</p>
-            </div>
-
         </div>
     )
 }

@@ -14,12 +14,12 @@ import { Link } from 'react-router-dom';
 function Home() {
   return (
     <div className='home'>
-      <div className='homeTop'>
+      {/* <div className='homeTop'>
         <h1>Step into Style, Step into Sneaker Bliss!</h1>
         <div className='ShopNow'>
           <Link to='/MansShoes'>Shop Now</Link>
         </div>
-      </div>
+      </div> */}
       <img src={img2} alt='img' className='homeImg'></img>
       <img src={img1} alt='img' className='homeImg'></img>
       <img src={img3} alt='img' className='homeImg'></img>

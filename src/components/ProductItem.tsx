@@ -48,7 +48,7 @@ function ProductItem({ product, setProducts, isMobile }: ProductItemProps) {
     return (
 
         <div
-            className={'product' + (isMobile ? ' mobile' : '')}
+            className='product'
             onMouseEnter={() => setIsShown(true)}
             onMouseLeave={() => setIsShown(false)}
             onClick={handleProductClick}
@@ -80,7 +80,7 @@ function ProductItem({ product, setProducts, isMobile }: ProductItemProps) {
                     }
 
                 </div>
-                {isShown && (
+                {/* {isShown && (
                     <div className='onHover'>
                         <ul className='productItemSizes'>
                             {product.sizes.map((size) => (
@@ -89,7 +89,7 @@ function ProductItem({ product, setProducts, isMobile }: ProductItemProps) {
                         </ul>
 
                     </div>
-                )}
+                )} */}
 
             </div>
         </div>
