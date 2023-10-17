@@ -3,19 +3,24 @@ import news1 from '../imgs/news/new1.png'
 import news2 from '../imgs/news/new2.png'
 import news3 from '../imgs/news/new3.png'
 import news4 from '../imgs/news/new4.png'
+import news from '../dataset/News'
+import { useNavigate } from 'react-router-dom'
 
 function News() {
+
+  const navigate = useNavigate()
+
   return (
-    <div className='news' >
-        <h1 >News</h1>
-        <p>September 9th, 2022</p>
-        <img src={news1} alt='news'></img>
-        <p>October 24th, 2022</p>
-        <img src={news2} alt='news'></img>
-        <p>January 13th, 2023</p>
-        <img src={news3} alt='news'></img>
-        <p>Match 13, 2023</p>
-        <img src={news4} alt='news'></img>
+    <div className='newsWrapper'>
+      <h1 >News</h1>
+      <div className='news' >       
+        {news.map(n =>
+          <div className='nnn' key={n.id} onClick={() => navigate(`/News/${n.id}`)}>
+            <p>{n.date}</p>
+            <img src={n.previewImg} alt='img'></img>
+          </div>
+        )}
+      </div>
     </div>
   )
 }

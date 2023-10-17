@@ -13,9 +13,11 @@ interface BagProps {
 
 function Bag({ productsInBag, setShoes, setAllClothes, setAllAccesories, isMobile }: BagProps) {
 
-  useEffect(() => {
-    console.log(productsInBag)
-  }, [productsInBag])
+  
+
+  // useEffect(() => {
+  //   console.log(productsInBag)
+  // }, [productsInBag])
 
   const [orderPrice, setOrderPrice] = useState<number>(0)
 

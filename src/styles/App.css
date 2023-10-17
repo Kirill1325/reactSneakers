@@ -184,11 +184,14 @@ body.sizeGuideShown {
 }
 
 header {
-    background-color: rgb(255, 255, 255);
+    /* position: fixed; */
+    background-color: rgb(234, 234, 234);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* gap: 5em; */
     min-height: 10vh;
+    /* width: 100%; */
+    /* z-index: 100; */
     padding: 0 1em;
 }
 
@@ -205,10 +208,11 @@ header a:hover {
 .headerFirst {
     display: flex;
     align-items: center;
+    margin-right: auto;
 }
 
 .headerFirst a {
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: 600;
 }
 
@@ -228,7 +232,7 @@ header a:hover {
 }
 
 .headerBag {
-    width: 2em;
+    width: 3.5em;
     height: 2em;
     position: relative;
     display: flex;
@@ -244,6 +248,11 @@ header a:hover {
 
 .headerBag svg {
     position: absolute;
+}
+
+.headerBag p {
+    position: absolute;
+    right: 4px;
 }
 
 .icon {
@@ -412,7 +421,7 @@ p {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-height: 22em;
+    max-height: 24em;
     border-radius: 2vmax;
     margin-top: 10px;
     padding: .5em;
@@ -559,6 +568,10 @@ ul {
     margin: 4em;
 }
 
+.emptyBag b {
+    color: black;
+}
+
 .w-6.h-8 {
     border: none;
     width: 4em;
@@ -660,7 +673,7 @@ ul {
     padding-top: 3em;
 }
 
-.shoePageLeft{
+.shoePageLeft {
     max-width: 50%;
     display: flex;
     flex-direction: column;
@@ -669,7 +682,7 @@ ul {
     /* margin-left: 5em; */
 }
 
-.shoePageDescription h2{
+.shoePageDescription h2 {
     margin-bottom: 1em;
 }
 
@@ -710,7 +723,7 @@ ul {
 
 .shoePageSlider {
     display: flex;
-    
+
 }
 
 .shoePageSliderCarousel {
@@ -1180,7 +1193,7 @@ input {
 .bagTop {
     display: flex;
     justify-content: space-between;
-    margin: 3em 0 3em;
+    margin: 3em;
 }
 
 .bagTop.mobile {
@@ -1271,17 +1284,31 @@ input {
     cursor: pointer;
 }
 
-.news {
-    display: flex;
-    flex-direction: column;
-    margin: 3vh 3vw;
+.newsWrapper {
+    margin: 5vh 3vw;
 }
 
-.news img {
-    width: 15vw;
-    height: auto;
-    margin: 2vh 7vw;
+.news {
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
 }
+
+.nnn {
+    flex: 1 0 41%;
+    cursor: pointer;
+    height: max-content;
+    height: 15em;
+}
+
+.nnn img {
+    width: auto;
+    height: 80%;
+}
+
+/* .nnn p{
+    width: 100%;
+} */
 
 .mainNews {
     display: flex;
@@ -1305,6 +1332,37 @@ input {
 .mainNews img:hover {
     transform: scale(1.1);
     transition: transform .4s;
+}
+
+.NewsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    margin: 5vh auto;
+    max-width: 60%;
+}
+
+.NewsContent {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+    gap: 2em;
+}
+
+.NewsContentInner {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+}
+
+.NewsContentInner b {
+    color: rgb(46, 46, 46);
+    font-size: 1.3em;
+}
+
+.NewsContentInner p {
+    color: black;
 }
 
 .footerContainer {
@@ -1625,6 +1683,10 @@ nav {
         display: none;
     }
 
+    .headerFirst a {
+        font-size: 2em;
+    }
+
     .headerSecond {
         display: flex;
         gap: 3em;
@@ -1638,67 +1700,9 @@ nav {
         position: relative;
         cursor: pointer;
     }
-}
 
-/* 
-@media (max-width: 950px) {
-
-    body {
-        background: rgb(224, 224, 224);
-    }
-
-    .sizeGuideContent {
-        width: 80vw;
-        height: max-content;
-    }
-}
-
-@media (max-width: 570px) {
-    .navContent {
-        min-width: 100vw;
-    }
-
-    center img {
-        max-width: 10em;
-    }
-
-    .sizeGuideContent {
-        width: 100%;
-        height: 100%;
-    }
-
-    .footerDown {
-        height: 3em;
-    }
-
-
-    .mainNews {
+    .news {
         flex-direction: column;
-        align-items: center;
-        margin-bottom: 1em;
+        gap: 3em;
     }
-
-    .mainNews img {
-        width: 90vw;
-        margin: 0;
-    }
-
-    .mainGrid {
-        grid-template-areas:
-            "shoes"
-            "clothes"
-            "accesories"
-        ;
-        height: 100vh;
-        gap: 1em;
-
-    }
-
-    .mainGridShoes {
-        height: 50vh;
-    }
-
-    .mainGridClothes {
-        height: 20vh;
-    }
-} */
+}

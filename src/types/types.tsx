@@ -1,5 +1,5 @@
 export type ISize = {
-    size: number | string ,
+    size: number | string,
     inBag: boolean
 }
 
@@ -25,4 +25,21 @@ export type IProduct = {
     img: string,
     imgHover: string,
     sliderPics: string[]
+}
+
+export type IParagraph = {
+    img: string,
+    content: string,
+    imgDescription: string
+}
+
+export type INew = {
+    id: number,
+    header: string,
+    header2: string,
+    topic: string,
+    author: string,
+    date: string,
+    paragraphs: IParagraph[],
+    previewImg: string,
 }

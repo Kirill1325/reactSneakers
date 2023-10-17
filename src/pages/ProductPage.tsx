@@ -40,6 +40,10 @@ function ProductPage({ setShoes, setAllClothes, setAllAccesories, isMobile, isSi
 
     const [chosenSize, setChosenSize] = useState<ISize>()
 
+    // useEffect(() => {
+    //     console.log(chosenSize)
+    // }, [chosenSize])
+
     useEffect(() => {
         if (product.sizes.length === 1) {
             setChosenSize(product.sizes[0])
@@ -47,7 +51,7 @@ function ProductPage({ setShoes, setAllClothes, setAllAccesories, isMobile, isSi
     }, [])
 
     const handleSizeChoice = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        const s = Number((e.target as HTMLButtonElement).value)
+        const s = (e.target as HTMLButtonElement).value
         setChosenSize(product.sizes.find(size => size.size == s))
     }
 

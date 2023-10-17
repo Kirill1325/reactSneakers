@@ -18,6 +18,7 @@ import Accesories from './pages/Accesories';
 import accesories from './dataset/Accesories'
 import Sales from './pages/Sales';
 import SizeGuide from './components/SizeGuide';
+import NewsPage from './pages/NewsPage';
 
 function App() {
 
@@ -97,8 +98,8 @@ function App() {
         ))
 
     // useEffect(() => {
-    //     console.log(isMobile)
-    // }, [isMobile])
+    //     console.log(productsInBag)
+    // }, [productsInBag])
 
     return (
         <BrowserRouter>
@@ -204,6 +205,10 @@ function App() {
                                     searchQuerry={searchQuerry}
                                     isMobile={isMobile}
                                 />}
+                        />
+                        <Route
+                            path='/News/:id'
+                            element={<NewsPage/>}
                         />
                         <Route
                             path='/Accesories/:id'

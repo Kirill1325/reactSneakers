@@ -9,9 +9,13 @@ import news3 from '../imgs/news/new3.png'
 import news4 from '../imgs/news/new4.png'
 import bunch from '../imgs/bunchOfShoes.png'
 import clothes from '../imgs/clothes.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import News from '../dataset/News'
 
 function Home() {
+
+  const navigate = useNavigate()
+
   return (
     <div className='home'>
       {/* <div className='homeTop'>
@@ -24,7 +28,7 @@ function Home() {
       <img src={img1} alt='img' className='homeImg'></img>
       <img src={img3} alt='img' className='homeImg'></img>
 
-      <div className='mainGrid'>
+      {/* <div className='mainGrid'>
         <div className='mainGridShoes'>
           <img src={bunch} alt='bunchOfShoes'></img>
           <p>Shoes</p>
@@ -40,24 +44,16 @@ function Home() {
           <p>Accesories</p>
           <Link to='/Accesories'></Link>
         </div>
-      </div>
+      </div> */}
 
       <div className='styleFeed'>
         <Link to='/News' className='homeLink'>The style feed</Link>
         <div className='mainNews'>
-          <div className='imgWrappper'>
-            <img src={news1} alt='news' className='new'></img>
-          </div>
-          <div className='imgWrappper'>
-            <img src={news2} alt='news' className='new'></img>
-          </div>
-          <div className='imgWrappper'>
-            <img src={news3} alt='news' className='new'></img>
-          </div>
-          <div className='imgWrappper'>
-            <img src={news4} alt='news' className='new'></img>
-          </div>
-
+          {News.map(n =>
+            <div key={n.id} className='imgWrappper' onClick={() => navigate(`/News/${n.id}`)}>
+              <img src={n.previewImg} alt='news' className='new'></img>
+            </div>
+          )}
         </div>
       </div>
     </div>
