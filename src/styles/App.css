@@ -1,38 +1,10 @@
-/* bebas */
-/* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); */
-
-/* oswald */
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Kanit&family=Montserrat&family=Oswald&family=Quicksand:wght@500&display=swap');
-
-/* Mulish */
-/* @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap'); */
-
-/* Inconsolata */
-/* @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap'); */
-
-/* Josefin Sans */
-/* @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap'); */
-
-/* Source Code Pro */
-/* @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap'); */
-
-/* Signika Negative */
-/* @import url('https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap'); */
-
-
 @import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: 'Bebas Neue', sans-serif; */
-    /* font-family: 'Oswald', sans-serif; */
-    /* font-family: 'Mulish', sans-serif; */
-    /* font-family: 'Inconsolata', monospace; */
-    /* font-family: 'Josefin Sans', sans-serif; */
-    /* font-family: 'Source Code Pro', monospace; */
-    /* font-family: 'Signika Negative', sans-serif; */
     font-family: 'Prompt', sans-serif;
 
 }
@@ -40,8 +12,6 @@
 body {
     max-width: 100%;
     min-height: 100vh;
-    /* background: rgb(238, 174, 202);
-    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%); */
 }
 
 body.sizeGuideShown {
@@ -59,14 +29,7 @@ body.sizeGuideShown {
     width: 100%;
     margin: 0;
     background-color: rgb(255, 255, 255);
-    /* border-radius: 1vmax; */
 }
-
-/* .wrapper.mobile {
-    margin: 0;
-    border-radius: 0;
-    width: 100%;
-} */
 
 .homeTop h1 {
     text-align: center;
@@ -74,7 +37,6 @@ body.sizeGuideShown {
 }
 
 .ShopNow {
-
     position: relative;
     display: flex;
     justify-content: center;
@@ -184,14 +146,11 @@ body.sizeGuideShown {
 }
 
 header {
-    /* position: fixed; */
     background-color: rgb(234, 234, 234);
     display: flex;
     align-items: center;
-    /* gap: 5em; */
+    gap: 5em;
     min-height: 10vh;
-    /* width: 100%; */
-    /* z-index: 100; */
     padding: 0 1em;
 }
 
@@ -278,7 +237,6 @@ header a:hover {
     display: none;
     position: absolute;
     z-index: 100;
-    /* background-color: gray; */
     background: rgb(152, 152, 152);
     background: linear-gradient(180deg, rgba(152, 152, 152, 1) 25%, rgba(77, 77, 77, 1) 68%);
 }
@@ -361,7 +319,6 @@ header a:hover {
     justify-content: space-between;
     align-items: center;
     font-size: 0.8rem;
-    /* padding: 10px 10px 10px; */
 }
 
 .likedProductContentLeft {
@@ -379,7 +336,6 @@ header a:hover {
 p {
     display: flex;
     justify-content: flex-start;
-    /* margin: 5px; */
 }
 
 .likedProductDescription:hover {
@@ -440,8 +396,6 @@ center img {
     justify-content: center;
     margin: 0 auto;
 }
-
-
 
 .price {
     color: black;
@@ -630,8 +584,6 @@ ul {
 }
 
 .mobileBagProductContent img {
-    /* width: 25vw;
-    height: auto; */
     height: 7em;
     width: auto;
     min-width: 9em;
@@ -665,11 +617,7 @@ ul {
 }
 
 .shoePageProduct {
-    /* max-height: 80vh; */
     display: flex;
-    /* gap: 10em; */
-    /* justify-content: space-between; */
-    /* align-items: center; */
     padding-top: 3em;
 }
 
@@ -679,7 +627,6 @@ ul {
     flex-direction: column;
     gap: 10em;
     margin: 5em;
-    /* margin-left: 5em; */
 }
 
 .shoePageDescription h2 {
@@ -699,8 +646,6 @@ ul {
     max-height: 90vh;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
-    /* align-items: center; */
     padding-top: 3em;
 }
 
@@ -734,7 +679,6 @@ ul {
     height: 40vh;
     min-width: 40vw;
     margin-top: 5vh;
-    /* margin-left: 5vw; */
 }
 
 .shoePageSlides {
@@ -785,7 +729,6 @@ ul {
 .shoePageSliderVertical {
     display: flex;
     flex-direction: column;
-    /* transform: translateY(7.5em); */
 }
 
 .shoePageSliderVertical img {
@@ -796,16 +739,7 @@ ul {
 
 .verticalSlide.activeSlide {
     opacity: 0.3;
-    /* transform: translateY(7.5em); */
 }
-
-/* .verticalSlide.nextSlide {
-    transform: translateY(7.5em);
-} */
-
-/* .verticalSlide.prevSlide {
-    transform: translateY(-100%);
-} */
 
 .mobileShoePageSlider {
     display: flex;
@@ -818,7 +752,6 @@ ul {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* gap: 1em; */
     align-items: center;
     height: 40vh;
     min-width: 40vw;
@@ -938,7 +871,6 @@ td {
 
 .sizes {
     display: flex;
-    /* margin: 10px; */
     flex-wrap: wrap;
     width: 100%;
 }
@@ -1026,7 +958,6 @@ td {
 .filterBar {
     display: flex;
     flex-wrap: wrap;
-    /* gap: 1em; */
 }
 
 .selects {
@@ -1180,15 +1111,7 @@ input {
     border-radius: 2vmax;
     outline: none;
     padding: 10px 20px;
-    /* background: none; */
-
 }
-
-/* .products{
-    margin: 2em;
-} */
-
-
 
 .bagTop {
     display: flex;
@@ -1206,15 +1129,12 @@ input {
 }
 
 .bagProducts {
-    /* border: 1px solid rgb(98, 98, 98); */
     width: 60vw;
     height: auto;
     background-color: white;
-
 }
 
 .orderPrice {
-    /* border: 1px solid rgb(98, 98, 98); */
     background-color: white;
     min-width: 25em;
     max-height: 20em;
@@ -1270,7 +1190,6 @@ input {
     top: 0;
     margin: 0;
     display: flex;
-    /* border: 1px solid black; */
 }
 
 .w-6.h-6 {
@@ -1291,7 +1210,6 @@ input {
 .news {
     display: flex;
     flex-wrap: wrap;
-    /* flex-direction: column; */
 }
 
 .nnn {
@@ -1306,12 +1224,9 @@ input {
     height: 80%;
 }
 
-/* .nnn p{
-    width: 100%;
-} */
-
 .mainNews {
     display: flex;
+    flex-direction: column;
     margin-bottom: 20px;
 }
 
@@ -1320,7 +1235,6 @@ input {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    border: 1px solid black;
 }
 
 .mainNews img {
@@ -1370,15 +1284,14 @@ input {
     height: 35vh;
     font-size: 1.1rem;
     display: flex;
-    flex-direction: column;
-    /* border-bottom-left-radius: 1vmax;
-    border-bottom-right-radius: 1vmax; */
+    justify-content: center;
 }
 
 .footerColumns {
-    width: 100%;
+    width: max-content;
     height: 80%;
     display: flex;
+    gap: 2em;
 }
 
 .footerColumns>div>p,
@@ -1389,8 +1302,6 @@ b {
 }
 
 .footerColumn {
-    width: calc(1100% / 3);
-    /* border: 1px solid black; */
     padding: 1.5em;
 }
 
@@ -1454,7 +1365,6 @@ nav {
     display: flex;
     flex-direction: column;
     padding: 0 1em;
-    /* align-items: center; */
 }
 
 .navLocationTop {
@@ -1644,7 +1554,6 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* border: 1px solid black; */
     padding: 0 .4em;
 }
 
@@ -1667,7 +1576,6 @@ nav {
 .mobileSearchedProductItem {
     display: flex;
     border-top: .1em solid rgb(198, 198, 198);
-    /* margin-top: .1em; */
     width: 100%;
     max-height: 5em;
     cursor: pointer;
@@ -1699,6 +1607,10 @@ nav {
         margin-bottom: 1em;
         position: relative;
         cursor: pointer;
+    }
+
+    .mainNews{
+        flex-direction: row;
     }
 
     .news {
