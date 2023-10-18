@@ -18,6 +18,7 @@ import Accesories from './pages/Accesories';
 import accesories from './dataset/Accesories'
 import Sales from './pages/Sales';
 import SizeGuide from './components/SizeGuide';
+import NewsPage from './pages/NewsPage';
 
 function App() {
 
@@ -71,7 +72,7 @@ function App() {
     const [searchQuerry, setSearchQuerry] = useState('')
 
     const [width, setWidth] = useState(0)
-    const isMobile = width < 1100
+    const isMobile = width < 900
 
     useEffect(() => {
         const updateWindowDimensions = () => {
@@ -96,6 +97,10 @@ function App() {
             product.sizes.some(size => size.inBag)
         ))
 
+    // useEffect(() => {
+    //     console.log(productsInBag)
+    // }, [productsInBag])
+
     return (
         <BrowserRouter>
 
@@ -114,7 +119,7 @@ function App() {
                     />
                 }
 
-                <div className={'wrapper' + (isMobile ? ' mobile' : '')}>
+                <div className='wrapper'>
 
                     <Header
                         shoes={shoes}
@@ -200,6 +205,10 @@ function App() {
                                     searchQuerry={searchQuerry}
                                     isMobile={isMobile}
                                 />}
+                        />
+                        <Route
+                            path='/News/:id'
+                            element={<NewsPage/>}
                         />
                         <Route
                             path='/Accesories/:id'
