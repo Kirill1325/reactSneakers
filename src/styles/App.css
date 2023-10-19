@@ -940,6 +940,7 @@ td {
     justify-content: space-between;
     align-items: center;
     margin-right: 2em;
+    margin-top: 3em;
 }
 
 .sizeGuide p {
