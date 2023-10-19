@@ -27,7 +27,7 @@ function App() {
     // const [allAccesories, setAllAccesories] = useState<IProduct[]>(accesories)
 
     const shoesState = localStorage.getItem('SHOES_STATE')
-    const [shoes, setShoes] = useState<IProduct[]>(shoesState === null ? MansShoes : JSON.parse(shoesState))
+    const [shoes, setShoes] = useState<IProduct[]>(shoesState === null ? mansShoes : JSON.parse(shoesState))
 
     useEffect(() => {
         const data = localStorage.getItem('SHOES_STATE')
