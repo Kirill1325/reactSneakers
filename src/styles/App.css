@@ -826,7 +826,7 @@ ul {
 
 .sizeGuideContent {
     position: fixed;
-    width: 35vw;
+    min-width: 35vw;
     height: max-content;
     background-color: white;
 }
@@ -941,6 +941,7 @@ td {
     align-items: center;
     margin-right: 2em;
     margin-top: 3em;
+    padding: 0 1em;
 }
 
 .sizeGuide p {
