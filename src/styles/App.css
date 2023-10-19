@@ -11,22 +11,30 @@
 
 body {
     max-width: 100%;
-    min-height: 100vh;
+    /* min-height: 100vh; */
+    height: max-content;
 }
 
 body.sizeGuideShown {
     overflow: hidden;
 }
 
+#root{
+    max-width: 100%;
+    height: max-content;
+}
+
 .App {
-    min-height: 100%;
+    /* min-height: 100%; */
+    max-width: 100%;
+    height: max-content;
     position: relative;
 }
 
 .wrapper {
     position: absolute;
     z-index: 1;
-    width: 100%;
+    min-width: 100vw;
     margin: 0;
     background-color: rgb(255, 255, 255);
 }
@@ -367,7 +375,7 @@ p {
 }
 
 .product {
-    flex: 1 0 45%;
+    flex: 1 0 35%;
     max-width: 15em;
     min-width: 8em;
     min-height: 5em;
@@ -1340,7 +1348,7 @@ nav {
     justify-content: space-between;
     padding-bottom: 2em;
     min-width: 25vw;
-    height: 100vh;
+    height: 100%;
     background-color: rgb(255, 255, 255);
 }
 
