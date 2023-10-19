@@ -508,6 +508,7 @@ ul {
 .deliveryDescription.mobile {
     flex-direction: column;
     margin: 0;
+    padding: 1em;
     gap: 1em;
     font-size: .7em;
 }
@@ -1136,6 +1137,7 @@ input {
 .bagTop.mobile {
     flex-direction: column;
     margin: 0;
+    margin-bottom: 1em;
 }
 
 .bagTop.mobile>div {
@@ -1304,7 +1306,7 @@ input {
     font-size: 1.1rem;
     display: flex;
     justify-content: center;
-    padding: 1em;
+    padding: 1em .3em 2em;
 }
 
 .footerColumns {
