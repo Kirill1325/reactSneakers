@@ -23,7 +23,7 @@ function Home() {
       <img src={img1} alt='img' className='homeImg'></img>
       <img src={img3} alt='img' className='homeImg'></img>
       <div className='styleFeed'>
-        <Link to='/News' className='homeLink'>The style feed</Link>
+        <Link to='/News' className='styleFeedLink'>The style feed</Link>
         <div className='mainNews'>
           {News.map(n =>
             <div key={n.id} className='imgWrappper' onClick={() => navigate(`/News/${n.id}`)}>
