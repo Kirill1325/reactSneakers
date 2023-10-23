@@ -1,116 +1,63 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../styles/App.css';
 import { useParams } from 'react-router-dom'
-import mansShoes from '../dataset/Shoes'
-import Clothes from '../dataset/Clothes';
-import Accesories from '../dataset/Accesories';
-import { IProduct, ISize } from '../types/types';
 import ShoePageSlider from '../components/UI/ShoePageSlider';
 import MobileShoePageSlider from '../components/UI/MobileShoePageSlider';
 import SizeGuide from '../components/SizeGuide';
+import { useDispatch } from 'react-redux';
+import { useAppSelector } from '../hooks/redux';
+import { toggleCart } from '../store/productsSlice';
+import { setChosenSize } from '../store/productsSlice';
+import { toggleVisiblility } from '../store/sizeGuideSlice';
 
 interface ProductPageProps {
-    setShoes: React.Dispatch<React.SetStateAction<IProduct[]>>,
-    setAllClothes: React.Dispatch<React.SetStateAction<IProduct[]>>,
-    setAllAccesories: React.Dispatch<React.SetStateAction<IProduct[]>>,
     isMobile: boolean,
-    isSizeGuideShown: boolean,
-    setIsSizeGuideShown: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-let product: IProduct
-
-function ProductPage({ setShoes, setAllClothes, setAllAccesories, isMobile, isSizeGuideShown, setIsSizeGuideShown }: ProductPageProps) {
-
-    const url = window.location.href
+function ProductPage({ isMobile }: ProductPageProps) {
 
     const param = useParams()
 
-    const allShoes = mansShoes.filter(shoe => shoe.id === Number(param.id))
-    const allAccesories = Accesories.filter(shoe => shoe.id === Number(param.id))
-    const allClothes = Clothes.filter(shoe => shoe.id === Number(param.id))
-
-    if (url.includes('MansShoes')) {
-        product = allShoes[0]
-    } else if (url.includes('Clothes')) {
-        product = allClothes[0]
-    } else if (url.includes('Accesories')) {
-        product = allAccesories[0]
-    }
-
-    const [chosenSize, setChosenSize] = useState<ISize>()
-
-    // useEffect(() => {
-    //     console.log(chosenSize)
-    // }, [chosenSize])
+    const dispatch = useDispatch()
+    const { chosenSize } = useAppSelector(state => state.productsReducer)
+    const { isSizeGuidevisible } = useAppSelector(state => state.sizeGuideReducer)
+    const { products } = useAppSelector(state => state.productsReducer)
+    const [product] = products.filter(p => p.id === Number(param.id))
 
     useEffect(() => {
         if (product.sizes.length === 1) {
             setChosenSize(product.sizes[0])
         }
+        dispatch(setChosenSize(null))
     }, [])
+
+    console.log(chosenSize)
 
     const handleSizeChoice = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         const s = (e.target as HTMLButtonElement).value
-        setChosenSize(product.sizes.find(size => size.size == s))
+        dispatch(setChosenSize(product.sizes.find(size => size.size == s)))
     }
 
     const handleAddToBag = () => {
-        setShoes((prevProducts: IProduct[]) => (
-            prevProducts.map((shoe: IProduct) =>
-                shoe.id === product.id
-                    ? {
-                        ...shoe, sizes: shoe.sizes.map(size =>
-                            size.size === chosenSize?.size
-                                ? { ...size, inBag: !size.inBag }
-                                : size
-                        )
-                    }
-                    : shoe
-            )
-        ))
-        setAllClothes((prevProducts: IProduct[]) => (
-            prevProducts.map((shoe: IProduct) =>
-                shoe.id === product.id
-                    ? {
-                        ...shoe, sizes: shoe.sizes.map(size =>
-                            size.size === chosenSize?.size
-                                ? { ...size, inBag: !size.inBag }
-                                : size
-                        )
-                    }
-                    : shoe
-            )
-        ))
-        setAllAccesories((prevProducts: IProduct[]) => (
-            prevProducts.map((shoe: IProduct) =>
-                shoe.id === product.id
-                    ? {
-                        ...shoe, sizes: shoe.sizes.map(size =>
-                            size.size === chosenSize?.size
-                                ? { ...size, inBag: !size.inBag }
-                                : size
-                        )
-                    }
-                    : shoe
-            )
-        ))
+        dispatch(toggleCart({ product: product, size: chosenSize }))
+        dispatch(setChosenSize(null))
     }
 
+
     const handleSizeGuideClick = () => {
-        setIsSizeGuideShown(prevShown => !prevShown)
+        dispatch(toggleVisiblility())
     }
 
     useEffect(() => {
-        document.body.classList.toggle("sizeGuideShown", isSizeGuideShown);
-    }, [isSizeGuideShown])
+        document.body.classList.toggle("sizeGuideShown", isSizeGuidevisible);
+    }, [isSizeGuidevisible])
 
     return (
         (isMobile
             ?
             <div className='mobileShoePage'>
-                {isSizeGuideShown &&
-                    <SizeGuide product={product} setIsSizeGuideShown={setIsSizeGuideShown} />
+                {isSizeGuidevisible &&
+                    <SizeGuide product={product} />
                 }
                 <h2 style={{ marginLeft: '10px' }}>{product.brandName} {product.model}</h2>
                 <MobileShoePageSlider slides={product.sliderPics} />
@@ -136,6 +83,11 @@ function ProductPage({ setShoes, setAllClothes, setAllAccesories, isMobile, isSi
                             <li key={size.size}>
                                 <button
                                     value={size.size}
+                                    style={{
+                                        borderColor: size.size === chosenSize?.size ? 'black' : '',
+                                        // color: size.inBag && size.size === chosenSize?.size ? 'rgb(62, 142, 255)' : '',
+                                        // backgroundColor: size.inBag && size.size === chosenSize?.size ? 'rgb(62, 142, 255)' : '',
+                                    }}
                                     onClick={(e) => handleSizeChoice(e)}
                                 >{size.size}
                                 </button>
@@ -143,12 +95,23 @@ function ProductPage({ setShoes, setAllClothes, setAllAccesories, isMobile, isSi
                         ))}
                     </ul>
                 </div>
-                <button className='addToCartButton' onClick={handleAddToBag} >Add To Cart</button>
+                <button
+                    className='addToCartButton'
+                    style={{
+                        backgroundColor: chosenSize?.inBag ? 'rgb(62, 142, 255)' : '',
+                        border: chosenSize?.inBag ? '1px solid black' : '',
+                        color: chosenSize?.inBag ? 'black' : '',
+                    }}
+                    onClick={handleAddToBag}
+                >
+                    {chosenSize?.inBag ? 'In A Cart' : 'Add To Cart'}
+                </button>
+
             </div>
             :
             <div className='shoePageProduct'>
-                {isSizeGuideShown &&
-                    <SizeGuide product={product} setIsSizeGuideShown={setIsSizeGuideShown} />
+                {isSizeGuidevisible &&
+                    <SizeGuide product={product} />
                 }
                 <div className='shoePageLeft'>
                     <ShoePageSlider slides={product.sliderPics} />
@@ -176,13 +139,28 @@ function ProductPage({ setShoes, setAllClothes, setAllAccesories, isMobile, isSi
                             <li key={size.size}>
                                 <button
                                     value={size.size}
+                                    style={{
+                                        borderColor: size.size === chosenSize?.size ? 'black' : '',
+                                        // color: size.inBag && size.size === chosenSize?.size ? 'rgb(62, 142, 255)' : '',
+                                        // backgroundColor: size.inBag && size.size === chosenSize?.size ? 'rgb(62, 142, 255)' : '',
+                                    }}
                                     onClick={(e) => handleSizeChoice(e)}
                                 >{size.size}
                                 </button>
                             </li>
                         ))}
                     </ul>
-                    <button className='addToCartButton' onClick={handleAddToBag}>Add To Cart</button>
+                    <button
+                        className='addToCartButton'
+                        style={{
+                            backgroundColor: chosenSize?.inBag ? 'rgb(62, 142, 255)' : '',
+                            border: chosenSize?.inBag ? '1px solid black' : '',
+                            color: chosenSize?.inBag ? 'black' : '',
+                        }}
+                        onClick={handleAddToBag}
+                    >
+                        {chosenSize?.inBag ? 'In A Cart' : 'Add To Cart'}
+                    </button>
                 </div>
             </div>
         )
@@ -190,4 +168,3 @@ function ProductPage({ setShoes, setAllClothes, setAllAccesories, isMobile, isSi
 }
 
 export default ProductPage
-

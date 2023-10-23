@@ -6,7 +6,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Prompt', sans-serif;
-
 }
 
 body {
@@ -15,14 +14,13 @@ body {
     flex-direction: column;
 }
 
+#root{
+    min-height: 100vh;
+}
+
 body.sizeGuideShown {
     overflow: hidden;
 }
-
-/* #root{
-    width: 100%;
-    min-height: 100%;
-} */
 
 .App {
     width: 100%;
@@ -32,15 +30,12 @@ body.sizeGuideShown {
 }
 
 .wrapper {
-    position: absolute;
-    z-index: 1;
-    /* min-width: 100vw; */
     width: 100%;
-    min-height: 100%;
+    min-height: 100vh;
     margin: 0;
     background-color: rgb(255, 255, 255);
-    /* display: flex;
-    flex-direction: column; */
+    display: flex;
+    flex-direction: column;
 }
 
 .homeTop h1 {
@@ -379,9 +374,7 @@ p {
 }
 
 .product {
-    /* flex: 1 0 35%; */
     max-width: 40%;
-    /* min-width: 8em; */
     min-height: 5em;
 }
 
@@ -411,6 +404,7 @@ center img {
 
 .price {
     color: black;
+    margin: 0;
 }
 
 .salePrice {
@@ -421,7 +415,6 @@ center img {
 .salePriceP {
     display: flex;
     flex-direction: column;
-    margin-left: 1em;
 }
 
 .oldPrice {
@@ -501,11 +494,6 @@ ul {
 
 .deliveryDescription {
     display: flex;
-    gap: 5em;
-    margin: 2em;
-}
-
-.deliveryDescription.mobile {
     flex-direction: column;
     margin: 0;
     padding: 1em;
@@ -544,77 +532,61 @@ ul {
     width: 4em;
 }
 
+.bagProductOutside hr {
+    margin: .6em;
+}
+
 .bagProduct {
+    min-height: 17vh;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     cursor: pointer;
     padding-right: 1em;
 }
 
-.bagProduct b {
-    margin: 5px 20px;
+.bagProduct p {
+    font-size: .9em;
 }
 
 .bagProductContent {
     display: flex;
-    width: 60%;
+    width: 85%;
 }
 
 .bagProductContent img {
-    width: 15vw;
+    width: 50%;
     height: auto;
-    margin: 20px;
 }
 
 .productDescription {
     display: flex;
     flex-direction: column;
-    margin-left: 1em;
+    align-items: flex-start;
+    margin-left: .4em;
 }
 
-.productDescription button {
+.desktopDeleteFromCart {
+    display: none;
     min-width: 8em;
     min-height: 4vh;
-    margin-top: 3em;
+    margin-top: 2em;
     background-color: transparent;
     cursor: pointer;
     border: .01em solid rgb(140, 140, 140);
     border-radius: 1vmax;
 }
 
-.productDescription button:hover {
-    border-color: rgb(39, 39, 39);
-}
-
-.mobileBagProduct {
-    display: flex;
-    cursor: pointer;
-}
-
-.mobileBagProductContent {
-    flex-basis: 90%;
-    display: flex;
-}
-
-.mobileBagProductContent img {
-    height: 7em;
-    width: auto;
-    min-width: 9em;
-    margin: 0 0 20px 20px;
-}
-
-.mobileBagProductContent b {
-    display: block;
-    margin: 5px;
-}
-
-.mobileBagProduct button {
+.mobileDeleteFromCart {
     flex-basis: 10%;
     outline: none;
     border: none;
     background: transparent;
     height: 2em;
     margin-right: 1em;
+}
+
+.desktopDeleteFromCart:hover {
+    border-color: rgb(39, 39, 39);
 }
 
 .w-6.h-2 {
@@ -662,9 +634,9 @@ ul {
     padding-top: 3em;
 }
 
-.mobileShoePage button {
+.mobileShoePage > .addToCartButton {
     min-width: 15em;
-    max-height: 3em;
+    min-height: 2.5em;
 }
 
 .slide {
@@ -908,10 +880,10 @@ td {
     background-color: transparent;
 }
 
-.sizes button:focus {
+/* .sizes button:focus {
     border: 1px solid black;
     background-color: transparent;
-}
+} */
 
 .mobileSizesContainer {
     display: flex;
@@ -1132,25 +1104,21 @@ input {
 
 .bagTop {
     display: flex;
-    justify-content: space-between;
-    margin: 3em;
-}
-
-.bagTop.mobile {
     flex-direction: column;
+    /* gap: 5%; */
     margin: 0;
     margin-bottom: 1em;
 }
 
-.bagTop.mobile>div {
-    width: 100%;
-}
-
 .bagProducts {
-    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
     height: auto;
     background-color: white;
 }
+
 
 .orderPrice {
     background-color: white;
@@ -1300,7 +1268,7 @@ input {
 }
 
 .footerContainer {
-    position: absolute;
+    /* position: absolute; */
     /* bottom: 0; */
     width: 100%;
     background-color: rgb(54, 54, 54);
@@ -1308,7 +1276,7 @@ input {
     font-size: 1.1rem;
     display: flex;
     justify-content: center;
-    margin-top: 2em;
+    margin-top: auto;
     padding: 1em .3em 2em;
 }
 
@@ -1578,6 +1546,7 @@ nav {
     outline: none;
     border: none;
     background: transparent;
+    cursor: pointer;
 }
 
 .history {
@@ -1631,7 +1600,7 @@ nav {
         margin-right: 5em;
     }
 
-    .productList{
+    .productList {
         margin: 2em;
     }
 
@@ -1654,15 +1623,49 @@ nav {
         gap: 3em;
     }
 
-    .footerColumn{
+    .footerColumn {
         padding: 1.5em;
     }
 
-    .styleFeedLink{
+    .styleFeedLink {
         font-size: 3em;
     }
 
-    .selectContainer{
+    .selectContainer {
         width: 20em;
     }
+
+    .bagTop {
+        flex-direction: row;
+        gap: 5%;
+        margin: 3em;
+    }
+
+    .bagProducts {
+        width: 60%;
+    }
+
+    .orderPrice {
+        width: 35%;
+    }
+
+    .desktopDeleteFromCart {
+        display: block;
+    }
+
+    .mobileDeleteFromCart {
+        display: none;
+    }
+
+    .bagProductContent img {
+        width: 25%;
+    }
+
+    .deliveryDescription {
+        flex-direction: row;
+        gap: 5em;
+        margin: 2em;
+        font-size: 1em;
+    }
+
 }

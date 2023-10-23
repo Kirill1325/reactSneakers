@@ -2,24 +2,21 @@ import React, { useEffect, useState } from 'react'
 import '../styles/App.css';
 import { IProduct } from '../types/types'
 import ProductItemInBag from '../components/ProductItemInBag'
+import { useAppSelector } from '../hooks/redux';
 
-interface BagProps {
-  productsInBag: IProduct[],
-  setShoes: React.Dispatch<React.SetStateAction<IProduct[]>>,
-  setAllClothes: React.Dispatch<React.SetStateAction<IProduct[]>>,
-  setAllAccesories: React.Dispatch<React.SetStateAction<IProduct[]>>,
-  isMobile: boolean
-}
+function Bag() {
 
-function Bag({ productsInBag, setShoes, setAllClothes, setAllAccesories, isMobile }: BagProps) {
-
-  
-
-  // useEffect(() => {
-  //   console.log(productsInBag)
-  // }, [productsInBag])
+  const { products } = useAppSelector(state => state.productsReducer)
+  const productsInBag = products.filter(product =>
+    product.sizes.some(size => size.inBag)
+  )
 
   const [orderPrice, setOrderPrice] = useState<number>(0)
+
+  // TODO: setOrderPrice
+  // useEffect(() => {
+
+  // }, [productsInBag])
 
   return (
     <div className='bagContainer'>
@@ -27,7 +24,7 @@ function Bag({ productsInBag, setShoes, setAllClothes, setAllAccesories, isMobil
       {productsInBag.length > 0
         ?
         <div className='bag'>
-          <div className={'deliveryDescription' + (isMobile ? ' mobile' : '')}>
+          <div className='deliveryDescription'>
             <div className='delivery'>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-1">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
@@ -50,7 +47,7 @@ function Bag({ productsInBag, setShoes, setAllClothes, setAllAccesories, isMobil
               </span>
             </div>
           </div>
-          <div className={'bagTop' + (isMobile ? ' mobile' : '')}>
+          <div className='bagTop'>
             <div className='bagProducts'>
               <h3 style={{ margin: '20px 20px' }}>Your order</h3>
               {productsInBag.map((product, idx) =>
@@ -58,12 +55,8 @@ function Bag({ productsInBag, setShoes, setAllClothes, setAllAccesories, isMobil
                   <ProductItemInBag
                     key={idx + '-' + idx2}
                     product={product}
-                    size={size.size}
+                    size={size}
                     setOrderPrice={setOrderPrice}
-                    setShoes={setShoes}
-                    setAllClothes={setAllClothes}
-                    setAllAccesories={setAllAccesories}
-                    isMobile={isMobile}
                   />)
               )}
             </div>

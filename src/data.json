@@ -1,0 +1,887 @@
+[
+    {
+        "categorie": "Shoes",
+        "id": "1",
+        "brandName": "Nike",
+        "model": "Dunk High",
+        "price": "1000 €",
+        "onSale": "false",
+        "sizes": [
+            {
+                "size": "35",
+                "inBag": "false"
+            },
+            {
+                "size": "35.5",
+                "inBag": "false"
+            },
+            {
+                "size": "36",
+                "inBag": "false"
+            },
+            {
+                "size": "36.5",
+                "inBag": "false"
+            },
+            {
+                "size": "37",
+                "inBag": "false"
+            },
+            {
+                "size": 37.5,
+                "inBag": "false"
+            },
+            {
+                "size": 38,
+                "inBag": "false"
+            },
+            {
+                "size": 39,
+                "inBag": "false"
+            },
+            {
+                "size": 40,
+                "inBag": "false"
+            },
+            {
+                "size": 40.5,
+                "inBag": "false"
+            },
+            {
+                "size": 41,
+                "inBag": "false"
+            },
+            {
+                "size": 42,
+                "inBag": "false"
+            },
+            {
+                "size": 43,
+                "inBag": "false"
+            },
+            {
+                "size": 44,
+                "inBag": "false"
+            },
+            {
+                "size": 45,
+                "inBag": "false"
+            },
+            {
+                "size": 46,
+                "inBag": "false"
+            }
+        ],
+        "liked": "false",
+        "img": "./imgs/dunk1",
+        "imgHover": "./imgs/dunk2",
+        "sliderPics": [
+            "./imgs/dunk1",
+            "./imgs/dunk2",
+            "./imgs/dunk3"
+        ]
+    },
+    {
+        "categorie": "Shoes",
+        "id": 2,
+        "brandName": "Adidas",
+        "model": "Ozweego",
+        "price": "300 €",
+        "onSale": "true",
+        "sizes": [
+            {
+                "size": 35,
+                "inBag": "false"
+            },
+            {
+                "size": 35.5,
+                "inBag": "false"
+            },
+            {
+                "size": 36,
+                "inBag": "false"
+            },
+            {
+                "size": 36.5,
+                "inBag": "false"
+            },
+            {
+                "size": 37,
+                "inBag": "false"
+            },
+            {
+                "size": 37.5,
+                "inBag": "false"
+            },
+            {
+                "size": 38,
+                "inBag": "false"
+            },
+            {
+                "size": 41,
+                "inBag": "false"
+            },
+            {
+                "size": 42,
+                "inBag": "false"
+            },
+            {
+                "size": 42.5,
+                "inBag": "false"
+            },
+            {
+                "size": 43,
+                "inBag": "false"
+            }
+        ],
+        "liked": "false",
+        "img": "./imgs/ozweego1",
+        "imgHover": "./imgs/ozweego2",
+        "sliderPics": [
+            "./imgs/ozweego1",
+            "./imgs/ozweego2",
+            "./imgs/ozweego2"
+        ]
+    },
+    {
+        "categorie": "Shoes",
+        "id": 3,
+        "brandName": "Adidas",
+        "model": "Yeezy boost 380",
+        "price": "800 €",
+        "onSale": "false",
+        "sizes": [
+            {
+                "size": 35,
+                "inBag": "false"
+            },
+            {
+                "size": 37,
+                "inBag": "false"
+            },
+            {
+                "size": 37.5,
+                "inBag": "false"
+            },
+            {
+                "size": 38,
+                "inBag": "false"
+            },
+            {
+                "size": 39,
+                "inBag": "false"
+            },
+            {
+                "size": 42,
+                "inBag": "false"
+            },
+            {
+                "size": 44,
+                "inBag": "false"
+            },
+            {
+                "size": 46,
+                "inBag": "false"
+            }
+        ],
+        "liked": "false",
+        "img": "./imgs/yzy380_1",
+        "imgHover": "./imgs/yzy380_2",
+        "sliderPics": [
+            "./imgs/yzy380_1",
+            "./imgs/yzy380_2"
+        ]
+    },
+    {
+        "categorie": "Shoes",
+        "id": 4,
+        "brandName": "New Balance",
+        "model": "1906R",
+        "price": "900 €",
+        "onSale": "true",
+        "sizes": [
+            {
+                "size": 35,
+                "inBag": "false"
+            },
+            {
+                "size": 35.5,
+                "inBag": "false"
+            },
+            {
+                "size": 36,
+                "inBag": "false"
+            },
+            {
+                "size": 36.5,
+                "inBag": "false"
+            },
+            {
+                "size": 37,
+                "inBag": "false"
+            },
+            {
+                "size": 37.5,
+                "inBag": "false"
+            },
+            {
+                "size": 38,
+                "inBag": "false"
+            },
+            {
+                "size": 39,
+                "inBag": "false"
+            },
+            {
+                "size": 40,
+                "inBag": "false"
+            },
+            {
+                "size": 40.5,
+                "inBag": "false"
+            },
+            {
+                "size": 41,
+                "inBag": "false"
+            },
+            {
+                "size": 42,
+                "inBag": "false"
+            },
+            {
+                "size": 42.5,
+                "inBag": "false"
+            },
+            {
+                "size": 43,
+                "inBag": "false"
+            },
+            {
+                "size": 44,
+                "inBag": "false"
+            }
+        ],
+        "liked": "false",
+        "img": "./imgs/nb1906_1",
+        "imgHover": "./imgs/nb1906_2",
+        "sliderPics": [
+            "./imgs/nb1906_1",
+            "./imgs/nb1906_2",
+            "./imgs/nb1906_3",
+            "./imgs/nb1906_4",
+            "./imgs/nb1906_5"
+        ]
+    },
+    {
+        "categorie": "Shoes",
+        "id": 5,
+        "brandName": "Puma",
+        "model": "Slipstream Hi",
+        "price": "500 €",
+        "onSale": "false",
+        "sizes": [
+            {
+                "size": 35,
+                "inBag": "false"
+            },
+            {
+                "size": 35.5,
+                "inBag": "false"
+            },
+            {
+                "size": 36,
+                "inBag": "false"
+            },
+            {
+                "size": 40,
+                "inBag": "false"
+            },
+            {
+                "size": 40.5,
+                "inBag": "false"
+            },
+            {
+                "size": 41,
+                "inBag": "false"
+            },
+            {
+                "size": 42,
+                "inBag": "false"
+            },
+            {
+                "size": 43,
+                "inBag": "false"
+            },
+            {
+                "size": 43.5,
+                "inBag": "false"
+            },
+            {
+                "size": 45,
+                "inBag": "false"
+            },
+            {
+                "size": 46,
+                "inBag": "false"
+            }
+        ],
+        "liked": "false",
+        "img": "./imgs/slipstream1",
+        "imgHover": "./imgs/slipstream2",
+        "sliderPics": [
+            "./imgs/slipstream1",
+            "./imgs/slipstream2",
+            "./imgs/slipstream3"
+        ]
+    },
+    {
+        "categorie": "Shoes",
+        "id": 6,
+        "brandName": "Puma",
+        "model": "RS-X",
+        "price": "600 €",
+        "onSale": "false",
+        "sizes": [
+            {
+                "size": 35,
+                "inBag": "false"
+            },
+            {
+                "size": 35.5,
+                "inBag": "false"
+            },
+            {
+                "size": 36,
+                "inBag": "false"
+            },
+            {
+                "size": 36.5,
+                "inBag": "false"
+            },
+            {
+                "size": 37,
+                "inBag": "false"
+            },
+            {
+                "size": 37.5,
+                "inBag": "false"
+            },
+            {
+                "size": 38,
+                "inBag": "false"
+            },
+            {
+                "size": 39,
+                "inBag": "false"
+            },
+            {
+                "size": 40,
+                "inBag": "false"
+            },
+            {
+                "size": 40.5,
+                "inBag": "false"
+            },
+            {
+                "size": 41,
+                "inBag": "false"
+            },
+            {
+                "size": 42,
+                "inBag": "false"
+            }
+        ],
+        "liked": "false",
+        "img": "./imgs/rsx1",
+        "imgHover": "./imgs/rsx2",
+        "sliderPics": [
+            "./imgs/rsx1",
+            "./imgs/rsx2",
+            "./imgs/rsx3"
+        ]
+    },
+    {
+        "categorie": "Shoes",
+        "id": 7,
+        "brandName": "Reebook",
+        "model": "Classic",
+        "price": "430 €",
+        "onSale": "true",
+        "sizes": [
+            {
+                "size": 35,
+                "inBag": "false"
+            },
+            {
+                "size": 35.5,
+                "inBag": "false"
+            },
+            {
+                "size": 36,
+                "inBag": "false"
+            },
+            {
+                "size": 36.5,
+                "inBag": "false"
+            },
+            {
+                "size": 37,
+                "inBag": "false"
+            },
+            {
+                "size": 37.5,
+                "inBag": "false"
+            },
+            {
+                "size": 38,
+                "inBag": "false"
+            },
+            {
+                "size": 39,
+                "inBag": "false"
+            },
+            {
+                "size": 40,
+                "inBag": "false"
+            },
+            {
+                "size": 40.5,
+                "inBag": "false"
+            },
+            {
+                "size": 41,
+                "inBag": "false"
+            },
+            {
+                "size": 42,
+                "inBag": "false"
+            }
+        ],
+        "liked": "false",
+        "img": "./imgs/classic1",
+        "imgHover": "./imgs/classic2",
+        "sliderPics": [
+            "./imgs/classic1",
+            "./imgs/classic2",
+            "./imgs/classic3"
+        ]
+    },
+    {
+        "categorie": "Shoes",
+        "id": 8,
+        "brandName": "New Balance",
+        "model": "550",
+        "price": "750 €",
+        "onSale": "false",
+        "sizes": [
+            {
+                "size": 35,
+                "inBag": "false"
+            },
+            {
+                "size": 35.5,
+                "inBag": "false"
+            },
+            {
+                "size": 36,
+                "inBag": "false"
+            },
+            {
+                "size": 36.5,
+                "inBag": "false"
+            },
+            {
+                "size": 37,
+                "inBag": "false"
+            },
+            {
+                "size": 37.5,
+                "inBag": "false"
+            },
+            {
+                "size": 38,
+                "inBag": "false"
+            },
+            {
+                "size": 39,
+                "inBag": "false"
+            },
+            {
+                "size": 40,
+                "inBag": "false"
+            },
+            {
+                "size": 40.5,
+                "inBag": "false"
+            },
+            {
+                "size": 41,
+                "inBag": "false"
+            },
+            {
+                "size": 42,
+                "inBag": "false"
+            }
+        ],
+        "liked": "false",
+        "img": "./imgs/nb550_1",
+        "imgHover": "./imgs/nb550_2",
+        "sliderPics": [
+            "./imgs/nb550_1",
+            "./imgs/nb550_2",
+            "./imgs/nb550_3"
+        ]
+    },
+    {
+        "categorie": "Shoes",
+        "id": 9,
+        "brandName": "Puma",
+        "model": "Teveris Nitro",
+        "price": "600 €",
+        "onSale": "false",
+        "sizes": [
+            {
+                "size": 35,
+                "inBag": "false"
+            },
+            {
+                "size": 35.5,
+                "inBag": "false"
+            },
+            {
+                "size": 36,
+                "inBag": "false"
+            },
+            {
+                "size": 36.5,
+                "inBag": "false"
+            },
+            {
+                "size": 37,
+                "inBag": "false"
+            },
+            {
+                "size": 37.5,
+                "inBag": "false"
+            },
+            {
+                "size": 38,
+                "inBag": "false"
+            },
+            {
+                "size": 39,
+                "inBag": "false"
+            },
+            {
+                "size": 40,
+                "inBag": "false"
+            },
+            {
+                "size": 40.5,
+                "inBag": "false"
+            },
+            {
+                "size": 41,
+                "inBag": "false"
+            },
+            {
+                "size": 42,
+                "inBag": "false"
+            }
+        ],
+        "liked": "false",
+        "img": "./imgs/nitro1",
+        "imgHover": "./imgs/nitro2",
+        "sliderPics": [
+            "./imgs/nitro1",
+            "./imgs/nitro2",
+            "./imgs/nitro3",
+            "./imgs/nitro4",
+            "./imgs/nitro5"
+        ]
+    },
+    {
+        "categorie": "Shoes",
+        "id": 10,
+        "brandName": "Nike",
+        "model": "Blazer low",
+        "price": "600 €",
+        "onSale": "true",
+        "sizes": [
+            {
+                "size": 35,
+                "inBag": "false"
+            },
+            {
+                "size": 35.5,
+                "inBag": "false"
+            },
+            {
+                "size": 36,
+                "inBag": "false"
+            },
+            {
+                "size": 36.5,
+                "inBag": "false"
+            },
+            {
+                "size": 37,
+                "inBag": "false"
+            },
+            {
+                "size": 37.5,
+                "inBag": "false"
+            },
+            {
+                "size": 38,
+                "inBag": "false"
+            },
+            {
+                "size": 41,
+                "inBag": "false"
+            },
+            {
+                "size": 42,
+                "inBag": "false"
+            },
+            {
+                "size": 42.5,
+                "inBag": "false"
+            },
+            {
+                "size": 43,
+                "inBag": "false"
+            }
+        ],
+        "liked": "false",
+        "img": "./imgs/blazer1",
+        "imgHover": "./imgs/blazer2",
+        "sliderPics": [
+            "./imgs/blazer1",
+            "./imgs/blazer2",
+            "./imgs/blazer3",
+            "./imgs/blazer4",
+            "./imgs/blazer5"
+        ]
+    },
+    {
+        "categorie": "Shoes",
+        "id": 11,
+        "brandName": "Puma",
+        "model": "Cali dream",
+        "price": "800 €",
+        "onSale": "false",
+        "sizes": [
+            {
+                "size": 35,
+                "inBag": "false"
+            },
+            {
+                "size": 35.5,
+                "inBag": "false"
+            },
+            {
+                "size": 36,
+                "inBag": "false"
+            },
+            {
+                "size": 36.5,
+                "inBag": "false"
+            },
+            {
+                "size": 37,
+                "inBag": "false"
+            },
+            {
+                "size": 37.5,
+                "inBag": "false"
+            },
+            {
+                "size": 38,
+                "inBag": "false"
+            },
+            {
+                "size": 39,
+                "inBag": "false"
+            }
+        ],
+        "liked": "false",
+        "img": "./imgs/cali1",
+        "imgHover": "./imgs/cali2",
+        "sliderPics": [
+            "./imgs/cali1",
+            "./imgs/cali2",
+            "./imgs/cali3",
+            "./imgs/cali4",
+            "./imgs/cali5"
+        ]
+    },
+    {
+        "categorie": "Clothes",
+        "id": 12,
+        "brandName": "Napapijri",
+        "model": "B-Mataje",
+        "price": "100 €",
+        "onSale": "true",
+        "sizes": [
+            {
+                "size": "S",
+                "inBag": "false"
+            },
+            {
+                "size": "M",
+                "inBag": "false"
+            },
+            {
+                "size": "L",
+                "inBag": "false"
+            },
+            {
+                "size": "XL",
+                "inBag": "false"
+            }
+        ],
+        "liked": "false",
+        "img": "./imgs/napapijri1",
+        "imgHover": "./imgs/napapijri2",
+        "sliderPics": [
+            "./imgs/napapijri1",
+            "./imgs/napapijri2",
+            "./imgs/napapijri3",
+            "./imgs/napapijri4",
+            "./imgs/napapijri5"
+        ]
+    },
+    {
+        "categorie": "Clothes",
+        "id": 13,
+        "brandName": "The North Face",
+        "model": "Rmst Nuptse Jacket",
+        "price": "500 €",
+        "onSale": "false",
+        "sizes": [
+            {
+                "size": "XS",
+                "inBag": "false"
+            },
+            {
+                "size": "S",
+                "inBag": "false"
+            },
+            {
+                "size": "M",
+                "inBag": "false"
+            },
+            {
+                "size": "L",
+                "inBag": "false"
+            }
+        ],
+        "liked": "false",
+        "img": "./imgs/tnf1",
+        "imgHover": "./imgs/tnf2",
+        "sliderPics": [
+            "./imgs/tnf1",
+            "./imgs/tnf2",
+            "./imgs/tnf3",
+            "./imgs/tnf4",
+            "./imgs/tnf5"
+        ]
+    },
+    {
+        "categorie": "Clothes",
+        "id": 14,
+        "brandName": "Adidas",
+        "model": "Heavyweight Shmoofoil Pocket",
+        "price": "50 €",
+        "onSale": "false",
+        "sizes": [
+            {
+                "size": "XS",
+                "inBag": "false"
+            },
+            {
+                "size": "S",
+                "inBag": "false"
+            },
+            {
+                "size": "L",
+                "inBag": "false"
+            },
+            {
+                "size": "XL",
+                "inBag": "false"
+            }
+        ],
+        "liked": "false",
+        "img": "./imgs/heavyweight1",
+        "imgHover": "./imgs/heavyweight2",
+        "sliderPics": [
+            "./imgs/heavyweight1",
+            "./imgs/heavyweight2",
+            "./imgs/heavyweight3",
+            "./imgs/heavyweight4",
+            "./imgs/heavyweight5"
+        ]
+    },
+    {
+        "categorie": "Clothes",
+        "id": 15,
+        "brandName": "Adidas",
+        "model": "Football Photo",
+        "price": "50 €",
+        "onSale": "true",
+        "sizes": [
+            {
+                "size": "XS",
+                "inBag": "false"
+            },
+            {
+                "size": "S",
+                "inBag": "false"
+            },
+            {
+                "size": "M",
+                "inBag": "false"
+            },
+            {
+                "size": "XL",
+                "inBag": "false"
+            }
+        ],
+        "liked": "false",
+        "img": "./imgs/football1",
+        "imgHover": "./imgs/football2",
+        "sliderPics": [
+            "./imgs/football1",
+            "./imgs/football2",
+            "./imgs/football3",
+            "./imgs/football4",
+            "./imgs/football5"
+        ]
+    },
+    {
+        "categorie": "Accesories",
+        "id": 16,
+        "brandName": "Vans",
+        "model": "Old Skool Boxed Backpac",
+        "price": "30 €",
+        "onSale": "true",
+        "sizes": [
+            {
+                "size": "One size",
+                "inBag": "false"
+            }
+        ],
+        "liked": "false",
+        "img": "./imgs/vansBag1",
+        "imgHover": "./imgs/vansBag2",
+        "sliderPics": [
+            "./imgs/vansBag1",
+            "./imgs/vansBag2",
+            "./imgs/vansBag3",
+            "./imgs/vansBag4",
+            "./imgs/vansBag5"
+        ]
+    }
+]

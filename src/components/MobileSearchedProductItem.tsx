@@ -1,15 +1,17 @@
 import React from 'react'
 import { IProduct } from '../types/types'
 import { useNavigate } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
+import { toggleVisibility } from '../store/searchWindowSlice';
+import { setSearchQuerry } from '../store/searchQuerrySlice'
 
 interface MobileSearchedProductItemProps {
   product: IProduct,
-  setIsSearchWindowShown: React.Dispatch<React.SetStateAction<boolean>>
-
 }
 
-function MobileSearchedProductItem({ product, setIsSearchWindowShown }: MobileSearchedProductItemProps) {
+function MobileSearchedProductItem({ product }: MobileSearchedProductItemProps) {
+
+  const dispatch = useDispatch()
 
   const navigate = useNavigate()
 
@@ -21,7 +23,8 @@ function MobileSearchedProductItem({ product, setIsSearchWindowShown }: MobileSe
     } else if (product.categorie === 'Accesories') {
       navigate(`/Accesories/${product.id}`)
     }
-    setIsSearchWindowShown(false)
+    dispatch(toggleVisibility())
+    dispatch(setSearchQuerry(''))
   }
 
   return (

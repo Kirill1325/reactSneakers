@@ -2,47 +2,53 @@ import React, { useEffect, useState } from 'react'
 import { search } from '../hooks/UseProducts'
 import { IProduct } from '../types/types'
 import MobileSearchedProductItem from './MobileSearchedProductItem'
+import { useAppSelector } from '../hooks/redux'
+import { useDispatch } from 'react-redux'
+import { toggleVisibility } from '../store/searchWindowSlice'
+import { clearSearchHistory, setSearchHistory, setSearchQuerry } from '../store/searchQuerrySlice'
 
+function MobileSearchWindow() {
 
-interface MobileSearchWindowProps {
-    products: IProduct[],
-    value: string,
-    setState: React.Dispatch<React.SetStateAction<string>>,
-    setIsSearchWindowShown: React.Dispatch<React.SetStateAction<boolean>>
+    const { products } = useAppSelector(state => state.productsReducer)
+    const { searchQuerry } = useAppSelector(state => state.searchQuerryReducer)
+    const { searchHistory } = useAppSelector(state => state.searchQuerryReducer)
+    const dispatch = useDispatch()
 
-}
-
-function MobileSearchWindow({ products, value, setState, setIsSearchWindowShown }: MobileSearchWindowProps) {
-
-    const sortedProducts = search(products, value)
+    // console.log(searchHistory)
 
     const handleCloseWindow = () => {
-        setIsSearchWindowShown(false)
-        setState('')
+        dispatch(setSearchQuerry(''))
+        dispatch(toggleVisibility())
     }
 
-    const [searchHistory, setSearchHistory] = useState([''])
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        // console.log(e.target.value)
+        dispatch(setSearchQuerry(e.target.value))
+    }
+
+    // const [searchHistory, setSearchHistory] = useState([''])
 
     useEffect(() => {
+        // console.log(searchQuerry)
         const id = setTimeout(() => {
-            setSearchHistory(prevHistory => [...prevHistory, value])
+            dispatch(setSearchHistory(searchQuerry))
         }, 1000)
 
         return () => {
             clearTimeout(id)
         }
-    }, [value])
+    }, [searchQuerry])
 
-    useEffect(() => {
-        const data = localStorage.getItem('SEARCH_HISTORY')
-        if (data !== null) setSearchHistory(JSON.parse(data))
-    }, [])
+    // useEffect(() => {
+    //     const data = localStorage.getItem('SEARCH_HISTORY')
+    //     if (data !== null) setSearchHistory(JSON.parse(data))
+    // }, [])
 
-    useEffect(() => {
-        localStorage.setItem('SEARCH_HISTORY', JSON.stringify(searchHistory))
-    }, [searchHistory])
+    // useEffect(() => {
+    //     localStorage.setItem('SEARCH_HISTORY', JSON.stringify(searchHistory))
+    // }, [searchHistory])
 
-
+    const sortedProducts = search(products, searchQuerry)
 
     return (
         <div className='mobileInputContainer'>
@@ -51,7 +57,7 @@ function MobileSearchWindow({ products, value, setState, setIsSearchWindowShown 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-13">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                     </svg>
-                    <input value={value} onChange={(e) => setState(e.target.value)} ></input>
+                    <input value={searchQuerry} onChange={(e) => handleInputChange(e)} ></input>
                     <button className='selectClearBtn' onClick={handleCloseWindow} >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-10">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -62,9 +68,9 @@ function MobileSearchWindow({ products, value, setState, setIsSearchWindowShown 
                 <div className='searchHistory'>
                     <div className='searchHistoryTop'>
                         <b>Previous Searches</b>
-                        <button onClick={() => setSearchHistory([])}>Clear All</button>
+                        <button onClick={() => dispatch(clearSearchHistory())}>Clear All</button>
                     </div>
-                    {searchHistory.map((history, idx) => (
+                    {searchHistory && searchHistory.map((history, idx) => (
                         history !== '' &&
                         <div key={idx} className='history'>
                             <div className='historyLeft'>
@@ -74,16 +80,15 @@ function MobileSearchWindow({ products, value, setState, setIsSearchWindowShown 
 
                                 <p>{history}</p>
                             </div>
-                            
+
                         </div>
                     ))}
                 </div>
                 <div className='mobileSearchedProducts'>
-                    {sortedProducts.map(product => (
+                    {sortedProducts?.map(product => (
                         <MobileSearchedProductItem
                             key={product.id}
                             product={product}
-                            setIsSearchWindowShown={setIsSearchWindowShown}
                         />
                     ))}
                 </div>

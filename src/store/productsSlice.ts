@@ -1,3 +1,4 @@
+import { createSlice, current } from "@reduxjs/toolkit"
 import dunk1 from '../imgs/dunk1.png'
 import dunk2 from '../imgs/dunk2.png'
 import dunk3 from '../imgs/dunk3.png'
@@ -49,10 +50,38 @@ import nitro3 from '../imgs/nitro3.png'
 import nitro4 from '../imgs/nitro4.png'
 import nitro5 from '../imgs/nitro5.png'
 
-import { IProduct } from '../types/types';
+import napapijri1 from '../imgs/napapijri1.png'
+import napapijri2 from '../imgs/napapijri2.png'
+import napapijri3 from '../imgs/napapijri3.png'
+import napapijri4 from '../imgs/napapijri4.png'
+import napapijri5 from '../imgs/napapijri5.png'
 
+import tnf1 from '../imgs/tnf1.png'
+import tnf2 from '../imgs/tnf2.png'
+import tnf3 from '../imgs/tnf3.png'
+import tnf4 from '../imgs/tnf4.png'
+import tnf5 from '../imgs/tnf5.png'
 
-const mansShoes: IProduct[] = [
+import heavyweight1 from '../imgs/heavyweight1.png'
+import heavyweight2 from '../imgs/heavyweight2.png'
+import heavyweight3 from '../imgs/heavyweight3.png'
+import heavyweight4 from '../imgs/heavyweight4.png'
+import heavyweight5 from '../imgs/heavyweight5.png'
+
+import football1 from '../imgs/football1.png'
+import football2 from '../imgs/football2.png'
+import football3 from '../imgs/football3.png'
+import football4 from '../imgs/football4.png'
+import football5 from '../imgs/football5.png'
+
+import vansBag1 from '../imgs/vansBag1.png'
+import vansBag2 from '../imgs/vansBag2.png'
+import vansBag3 from '../imgs/vansBag3.png'
+import vansBag4 from '../imgs/vansBag4.png'
+import vansBag5 from '../imgs/vansBag5.png'
+import { IProduct, ISize } from "../types/types"
+
+const productsState: IProduct[] = [
     {
         categorie: 'Shoes',
         id: 1,
@@ -344,7 +373,128 @@ const mansShoes: IProduct[] = [
         sliderPics: [cali1, cali2, cali3, cali4, cali5]
 
     },
+    {
+        categorie: 'Clothes',
+        id: 12,
+        brandName: 'Napapijri',
+        model: 'B-Mataje',
+        price: '100 €',
+        onSale: true,
+        sizes: [
+            { size: 'S', inBag: false },
+            { size: 'M', inBag: false },
+            { size: 'L', inBag: false },
+            { size: 'XL', inBag: false },
+        ],
+        liked: false,
+        img: napapijri1,
+        imgHover: napapijri2,
+        sliderPics: [napapijri1, napapijri2, napapijri3, napapijri4, napapijri5]
+    },
+    {
+        categorie: 'Clothes',
+        id: 13,
+        brandName: 'The North Face',
+        model: 'Rmst Nuptse Jacket',
+        price: '500 €',
+        onSale: false,
+        sizes: [
+            { size: 'XS', inBag: false },
+            { size: 'S', inBag: false },
+            { size: 'M', inBag: false },
+            { size: 'L', inBag: false },
+        ],
+        liked: false,
+        img: tnf1,
+        imgHover: tnf2,
+        sliderPics: [tnf1, tnf2, tnf3, tnf4, tnf5]
+    },
+    {
+        categorie: 'Clothes',
+        id: 14,
+        brandName: 'Adidas',
+        model: 'Heavyweight Shmoofoil Pocket',
+        price: '50 €',
+        onSale: false,
+        sizes: [
+            { size: 'XS', inBag: false },
+            { size: 'S', inBag: false },
+            { size: 'L', inBag: false },
+            { size: 'XL', inBag: false },
+        ],
+        liked: false,
+        img: heavyweight1,
+        imgHover: heavyweight2,
+        sliderPics: [heavyweight1, heavyweight2, heavyweight3, heavyweight4, heavyweight5]
+    },
+    {
+        categorie: 'Clothes',
+        id: 15,
+        brandName: 'Adidas',
+        model: 'Football Photo',
+        price: '50 €',
+        onSale: true,
+        sizes: [
+            { size: 'XS', inBag: false },
+            { size: 'S', inBag: false },
+            { size: 'M', inBag: false },
+            { size: 'XL', inBag: false },
+        ],
+        liked: false,
+        img: football1,
+        imgHover: football2,
+        sliderPics: [football1, football2, football3, football4, football5]
+    },
+    {
+        categorie: 'Accessories',
+        id: 16,
+        brandName: 'Vans',
+        model: 'Old Skool Boxed Backpac',
+        price: '30 €',
+        onSale: true,
+        sizes: [
+            { size: 'One Size', inBag: false },
+        ],
+        liked: false,
+        img: vansBag1,
+        imgHover: vansBag2,
+        sliderPics: [vansBag1, vansBag2, vansBag3, vansBag4, vansBag5]
+    },
 ]
 
-export default mansShoes
+let chosenSizeState: any = null
 
+const productsSlice = createSlice({
+    name: 'products',
+    initialState: {
+        products: productsState,
+        chosenSize: chosenSizeState
+    },
+    reducers: {
+        toggleLike(state, action) {
+            console.log(action.payload)
+            const likedProduct = state.products.find(product => product.id === action.payload.id)
+            if (typeof likedProduct !== 'undefined') {
+                likedProduct.liked = !likedProduct.liked
+            }
+            // console.log(current(state))
+        },
+        toggleCart(state, action) {
+            // console.log(action.payload)
+            const product = state.products.find(p => p.id === action.payload.product.id)
+            if (typeof product !== 'undefined') {
+                product.sizes.map(size =>
+                    size.size === action.payload.size.size
+                        ? size.inBag = !size.inBag
+                        : size.inBag = size.inBag
+                )
+            }
+        },
+        setChosenSize(state, action) {
+            state.chosenSize = action.payload
+        }
+    }
+})
+
+export const { toggleLike, toggleCart, setChosenSize } = productsSlice.actions
+export default productsSlice.reducer

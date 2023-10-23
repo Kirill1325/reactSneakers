@@ -1,20 +1,21 @@
 import React from 'react'
 import { IProduct } from '../types/types'
+import { useDispatch } from 'react-redux'
+import { toggleVisiblility } from '../store/sizeGuideSlice'
 
 interface SizeGuideProps {
     product: IProduct,
-    setIsSizeGuideShown: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-function SizeGuide({ product, setIsSizeGuideShown }: SizeGuideProps) {
+function SizeGuide({ product }: SizeGuideProps) {
 
-
+    const dispatch = useDispatch()
 
     return (
-        <div className='sizeGuideContainer' onClick={() => setIsSizeGuideShown(false)} >
+        <div className='sizeGuideContainer' onClick={() => dispatch(toggleVisiblility())} >
             <div className='sizeGuideContent' onClick={(e) => e.stopPropagation()}>
                 <h1>Size Guide</h1>
-                <button className='sizeGuideCloseBtn' onClick={() => setIsSizeGuideShown(false)} >
+                <button className='sizeGuideCloseBtn' onClick={() =>  dispatch(toggleVisiblility())} >
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-10">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>

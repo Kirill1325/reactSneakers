@@ -1,18 +1,15 @@
 import React, { useState } from 'react'
-import { IProduct } from '../types/types';
+import { useAppSelector } from '../hooks/redux';
 import ProductList from '../components/ProductList';
 import MainSlider from '../components/UI/MainSlider';
 
-interface AccesoriesProps {
-    products: IProduct[],
-    setProducts: React.Dispatch<React.SetStateAction<IProduct[]>>,
-    searchQuerry: string,
-    isMobile: boolean,
-}
+function Accessories() {
 
-function Accesories({ products, setProducts, searchQuerry, isMobile }: AccesoriesProps) {
+    const { products } = useAppSelector(state => state.productsReducer)
+    const { searchQuerry } = useAppSelector(state => state.searchQuerryReducer)
 
-    const salesProducts = [products[0]]
+    const accessories = products.filter(product => product.categorie === 'Accessories')
+
 
     const sizesOptions = [
         { name: 'Size', value: 'Size' },
@@ -29,11 +26,8 @@ function Accesories({ products, setProducts, searchQuerry, isMobile }: Accesorie
             <main>
                 <MainSlider />
                 <ProductList
-                    products={products}
-                    setProducts={setProducts}
-                    searchQuerry={searchQuerry}
+                    products={accessories}
                     categorie={'Accessories'}
-                    isMobile={isMobile}
                     sizesOptions={sizesOptions}
                 />
 
@@ -44,4 +38,4 @@ function Accesories({ products, setProducts, searchQuerry, isMobile }: Accesorie
     );
 }
 
-export default Accesories
+export default Accessories

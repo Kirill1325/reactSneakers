@@ -8,11 +8,6 @@ export type IOption = {
     value: string
 }
 
-export type globalShoe = {
-    categorie: string,
-    shoes: IProduct[]
-}
-
 export type IProduct = {
     categorie: string,
     id: number,

@@ -1,44 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/App.css';
 import { Link } from 'react-router-dom';
-import MyHover from './UI/MyHover';
 import LikesHover from './UI/LikesHover/LikesHover';
 import { IProduct } from '../types/types';
 import MyInput from './UI/MyInput';
-import logo from '../imgs/logo2.png'
+import { useAppSelector } from '../hooks/redux';
+import { useDispatch } from 'react-redux';
+import { toggleVisibility } from '../store/navbarSlice'
 
-interface HeaderProps {
-  shoes: IProduct[],
-  setShoes: React.Dispatch<React.SetStateAction<IProduct[]>>,
-  allClothes: IProduct[],
-  setAllClothes: React.Dispatch<React.SetStateAction<IProduct[]>>,
-  allAccesories: IProduct[],
-  setAllAccesories: React.Dispatch<React.SetStateAction<IProduct[]>>,
-  searchQuerry: string,
-  setSearchQuerry: React.Dispatch<React.SetStateAction<string>>,
-  isMobile: boolean,
-  setIsNavbarShown: React.Dispatch<React.SetStateAction<boolean>>,
-  setIsSearchWindowShown: React.Dispatch<React.SetStateAction<boolean>>,
-  productsInBag: IProduct[],
 
-}
+function Header() {
 
-function Header(
-  { shoes,
-    setShoes,
-    allClothes,
-    setAllClothes,
-    allAccesories,
-    setAllAccesories,
-    searchQuerry,
-    setSearchQuerry,
-    isMobile,
-    setIsNavbarShown,
-    setIsSearchWindowShown,
-    productsInBag
-  }: HeaderProps) {
+  const { products } = useAppSelector(state => state.productsReducer)
 
-  const likedProducts = shoes.filter(product => product.liked).concat(allClothes.filter(product => product.liked)).concat(allAccesories.filter(product => product.liked))
+  const productsInBag = products.filter(product =>
+    product.sizes.some(size => size.inBag)
+  )
+
+  const dispatch = useDispatch()
 
   const [count, setCount] = useState(0)
 
@@ -56,10 +35,10 @@ function Header(
 
   return (
 
-    <header>
+    <header >
 
       <div className='headerFirst'>
-        <svg onClick={() => setIsNavbarShown(true)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-3">
+        <svg onClick={() => dispatch(toggleVisibility())} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-3">
           <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
         <Link to='/'>Sneaker Street</Link>
@@ -73,22 +52,8 @@ function Header(
       </div>
 
       <div className='headerThird'>
-        <MyInput
-          placeholder='search'
-          value={searchQuerry}
-          setState={setSearchQuerry}
-          isMobile={isMobile}
-          setIsSearchWindowShown={setIsSearchWindowShown}
-        />
-        <LikesHover
-          name='likes'
-          values={likedProducts}
-          likes={likedProducts.length}
-          setShoes={setShoes}
-          setAllClothes={setAllClothes}
-          setAllAccesories={setAllAccesories}
-          isMobile={isMobile}
-        />
+        <MyInput />
+        <LikesHover />
         <div className='headerBag'>
           <Link to='/Bag'></Link>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="icon">

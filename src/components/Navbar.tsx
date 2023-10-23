@@ -8,13 +8,13 @@ import clothes from '../imgs/navClothes.png'
 import accesories from '../imgs/navAccesories.png'
 import styleFeed from '../imgs/navStyleFeed.png'
 import home from '../imgs/navHome.png'
+import { useDispatch } from 'react-redux'
+import { toggleVisibility } from '../store/navbarSlice'
 
-interface NavbarProps {
 
-    setIsNavbarShown: React.Dispatch<React.SetStateAction<boolean>>
-}
+function Navbar() {
 
-function Navbar({ setIsNavbarShown }: NavbarProps) {
+    const dispatch = useDispatch()
 
     // const url = window.location.href
 
@@ -27,13 +27,13 @@ function Navbar({ setIsNavbarShown }: NavbarProps) {
     // }
 
     return (
-        <nav onClick={() => setIsNavbarShown(false)}>
+        <nav onClick={() => dispatch(toggleVisibility())}>
             <div className='navContent' onClick={(e) => e.stopPropagation()}>
 
                 <div className='navContentUpper'>
                     <div className='navTop'>
                         <h2>Sneaker Street</h2>
-                        <button onClick={() => setIsNavbarShown(false)}>
+                        <button onClick={() => dispatch(toggleVisibility())}>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="icon">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
@@ -43,24 +43,24 @@ function Navbar({ setIsNavbarShown }: NavbarProps) {
 
                     <div className='navSections'>
                         <div className='navSection'>
-                            <Link to='/' className='navSectionsLink' onClick={() => setIsNavbarShown(false)} >Home</Link>
+                            <Link to='/' className='navSectionsLink' onClick={() => dispatch(toggleVisibility())} >Home</Link>
                             <img src={home} alt='shoe'></img>
                         </div>
                         <div className='navSection'>
-                            <Link to='/Clothes' className='navSectionsLink' onClick={() => setIsNavbarShown(false)} >Clothes</Link>
+                            <Link to='/Clothes' className='navSectionsLink' onClick={() => dispatch(toggleVisibility())} >Clothes</Link>
                             <img src={clothes} alt='shoe'></img>
                         </div>
                         <div className='navSection' >
-                            <Link to='/MansShoes' className='navSectionsLink' onClick={() => setIsNavbarShown(false)} >Shoes</Link>
+                            <Link to='/MansShoes' className='navSectionsLink' onClick={() => dispatch(toggleVisibility())} >Shoes</Link>
                             <img src={shoeCategorie} alt='shoe'></img>
                         </div>
                         <div className='navSection' >
-                            <Link to='/Accesories' className='navSectionsLink' onClick={() => setIsNavbarShown(false)} >Accesories</Link>
+                            <Link to='/Accesories' className='navSectionsLink' onClick={() => dispatch(toggleVisibility())} >Accesories</Link>
                             <img src={accesories} alt='shoe'></img>
                         </div>
-                      
+
                         <div className='navSection'>
-                            <Link to='/News' className='navSectionsLink' onClick={() => setIsNavbarShown(false)} >The Style Feed</Link>
+                            <Link to='/News' className='navSectionsLink' onClick={() => dispatch(toggleVisibility())} >The Style Feed</Link>
                             <img src={styleFeed} alt='shoe'></img>
                         </div>
                     </div>

@@ -7,24 +7,23 @@ import { IProduct } from '../types/types';
 import ProductItem from './ProductItem';
 import { useProducts } from '../hooks/UseProducts';
 import MultipleSelect from './UI/MultipleSelect';
+import { useAppSelector } from '../hooks/redux';
 
 interface ProductListProps {
-	products: IProduct[],
-	setProducts: React.Dispatch<React.SetStateAction<IProduct[]>>,
-	setClothes?: React.Dispatch<React.SetStateAction<IProduct[]>>,
-    setAccesories?: React.Dispatch<React.SetStateAction<IProduct[]>>,
-	searchQuerry: string,
+	products: IProduct[]
 	categorie: string,
-	isMobile: boolean,
 	sizesOptions: {
 		name: string,
 		value: string
 	}[],
 }
 
-function ProductList({ products, setProducts, setClothes, setAccesories, searchQuerry, categorie, isMobile, sizesOptions }: ProductListProps) {
+function ProductList({ products, categorie, sizesOptions }: ProductListProps) {
 
 	const url = window.location.href
+
+	const { searchQuerry } = useAppSelector(state => state.searchQuerryReducer)
+
 
 	const selectOptions = [
 		{ name: 'Expensive First', value: 'expensive' },
@@ -43,12 +42,12 @@ function ProductList({ products, setProducts, setClothes, setAccesories, searchQ
 		{ name: 'Vans', value: 'Vans' },
 	]
 
-	const categorieOptions = [
-		{ name: 'Categorie', value: 'categorieDefault' },
-		{ name: 'Shoes', value: 'Shoes' },
-		{ name: 'Clothes', value: 'Clothes' },
-		{ name: 'Accesories', value: 'Accesories' },
-	]
+	// const categorieOptions = [
+	// 	{ name: 'Categorie', value: 'categorieDefault' },
+	// 	{ name: 'Shoes', value: 'Shoes' },
+	// 	{ name: 'Clothes', value: 'Clothes' },
+	// 	{ name: 'Accesories', value: 'Accesories' },
+	// ]
 
 	const [selectedSort, setSelectedSort] = useState<IOption>(selectOptions[0])
 	const [brandNameSort, setBrandNameSort] = useState<IOption[]>([])
@@ -75,14 +74,6 @@ function ProductList({ products, setProducts, setClothes, setAccesories, searchQ
 						defaultValue={brandsOptions[0]}
 						setState={setBrandNameSort}
 					/>
-					{url.includes('Sales') &&
-						<MultipleSelect
-							options={categorieOptions.slice(1)}
-							value={categorieSort}
-							defaultValue={categorieOptions[0]}
-							setState={setCategorieSort}
-						/>
-					}
 					{!url.includes('Accesories') &&
 						<MultipleSelect
 							options={sizesOptions.slice(1)}
@@ -99,8 +90,6 @@ function ProductList({ products, setProducts, setClothes, setAccesories, searchQ
 					<ProductItem
 						key={product.id}
 						product={product}
-						setProducts={setProducts}
-						isMobile={isMobile}
 					/>
 				))}
 			</div>

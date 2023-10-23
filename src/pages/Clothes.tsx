@@ -1,19 +1,15 @@
 import React, { useState } from 'react';
 import '../styles/App.css';
 import ProductList from '../components/ProductList';
-import { IProduct } from '../types/types';
+import { useAppSelector } from '../hooks/redux';
 import MainSlider from '../components/UI/MainSlider';
 
-interface ClothesProps {
-    products: IProduct[],
-    setProducts: React.Dispatch<React.SetStateAction<IProduct[]>>,
-    searchQuerry: string,
-    isMobile: boolean,
-}
+function Clothes() {
 
-function Clothes({ products, setProducts, searchQuerry, isMobile }: ClothesProps) {
+    const { products } = useAppSelector(state => state.productsReducer)
+    const { searchQuerry } = useAppSelector(state => state.searchQuerryReducer)
 
-    const salesProducts = [products[0], products[2]]
+    const clothes = products.filter(product => product.categorie === 'Clothes')
 
     const sizesOptions = [
         { name: 'Size', value: 'Size' },
@@ -30,11 +26,8 @@ function Clothes({ products, setProducts, searchQuerry, isMobile }: ClothesProps
             <main>
                 <MainSlider />
                 <ProductList
-                    products={products}
-                    setProducts={setProducts}
-                    searchQuerry={searchQuerry}
+                    products={clothes}
                     categorie={'Clothes'}
-                    isMobile={isMobile}
                     sizesOptions={sizesOptions}
                 />
 

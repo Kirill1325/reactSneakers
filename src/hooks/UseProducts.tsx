@@ -13,10 +13,12 @@ const compare = (a: number, b: number, ascendingOrder: boolean) => {
 }
 
 export const search = (products: IProduct[], searchQuerry: string) => {
-    return (searchQuerry.length > 0
-        ? products.filter((product) => (`${product.brandName.toLowerCase()} ${product.model.toLowerCase()}`.match(searchQuerry.toLowerCase())))
-        : []
-    )
+    if (searchQuerry !== undefined) {
+        return (searchQuerry.length > 0
+            ? products.filter((product) => (`${product.brandName.toLowerCase()} ${product.model.toLowerCase()}`.match(searchQuerry.toLowerCase())))
+            : []
+        )
+    }
 }
 
 export const useProducts =

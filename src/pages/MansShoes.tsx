@@ -3,17 +3,15 @@ import '../styles/App.css';
 import ProductList from '../components/ProductList';
 import { IProduct } from '../types/types';
 import MainSlider from '../components/UI/MainSlider';
+import { useAppSelector } from '../hooks/redux';
 
-interface MansShoesProps {
-    products: IProduct[],
-    setProducts: React.Dispatch<React.SetStateAction<IProduct[]>>,
-    searchQuerry: string,
-    isMobile: boolean,
-}
 
-function MansShoes({ products, setProducts, searchQuerry, isMobile }: MansShoesProps) {
+function MansShoes() {
 
-    const salesProducts = [products[1], products[3], products[6]]
+    const { products } = useAppSelector(state => state.productsReducer)
+    const { searchQuerry } = useAppSelector(state => state.searchQuerryReducer)
+
+    const shoes = products.filter(product => product.categorie === 'Shoes')
 
     const sizesOptions = [
         { name: 'Size', value: 'Size' },
@@ -49,11 +47,8 @@ function MansShoes({ products, setProducts, searchQuerry, isMobile }: MansShoesP
             <main>
                 <MainSlider />
                 <ProductList
-                    products={products}
-                    setProducts={setProducts}
-                    searchQuerry={searchQuerry}
+                    products={shoes}
                     categorie={'Shoes'}
-                    isMobile={isMobile}
                     sizesOptions={sizesOptions}
                 />
 
