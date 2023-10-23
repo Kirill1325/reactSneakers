@@ -632,6 +632,7 @@ ul {
     display: flex;
     flex-direction: column;
     padding-top: 3em;
+    margin-bottom: 4em;
 }
 
 .mobileShoePage > .addToCartButton {
