@@ -14,7 +14,13 @@ body {
     flex-direction: column;
 }
 
-#root{
+:root {
+    --primary: rgb(181, 218, 88);
+    --accent: rgb(221, 250, 149);
+    
+}
+
+#root {
     min-height: 100vh;
 }
 
@@ -225,6 +231,11 @@ header a:hover {
     color: black;
     width: 2em;
     height: 2em;
+}
+
+.icon.notEmpty {
+    /* color: var(--primary); */
+    fill: var(--primary);
 }
 
 .styleFeedLink {
@@ -635,7 +646,7 @@ ul {
     margin-bottom: 4em;
 }
 
-.mobileShoePage > .addToCartButton {
+.mobileShoePage>.addToCartButton {
     min-width: 15em;
     min-height: 2.5em;
 }
@@ -971,7 +982,7 @@ td {
 }
 
 .selectContainer:focus {
-    border-color: rgb(0, 149, 255);
+    border-color: var(--primary);
 }
 
 .selectValue {
@@ -1035,12 +1046,12 @@ td {
 }
 
 .selectOption:hover {
-    background-color: rgb(0, 149, 255);
-    color: white;
+    background-color: var(--primary);
+    /* color: white; */
 }
 
 .selectOption.selected {
-    background-color: rgb(76, 180, 254);
+    background-color: var(--accent);
 }
 
 .optionBadge {

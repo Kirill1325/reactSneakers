@@ -153,7 +153,7 @@ function ProductPage({ isMobile }: ProductPageProps) {
                     <button
                         className='addToCartButton'
                         style={{
-                            backgroundColor: chosenSize?.inBag ? 'rgb(62, 142, 255)' : '',
+                            backgroundColor: chosenSize?.inBag ? 'rgb(181, 218, 88)' : '',
                             border: chosenSize?.inBag ? '1px solid black' : '',
                             color: chosenSize?.inBag ? 'black' : '',
                         }}
