@@ -31,7 +31,7 @@ function ProductPage({ isMobile }: ProductPageProps) {
         dispatch(setChosenSize(null))
     }, [])
 
-    console.log(chosenSize)
+    // console.log(chosenSize)
 
     const handleSizeChoice = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         const s = (e.target as HTMLButtonElement).value

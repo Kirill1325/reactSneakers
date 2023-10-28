@@ -4,6 +4,7 @@ import navbarReducer from "./navbarSlice";
 import searchWindowReducer from "./searchWindowSlice";
 import sizeGuideReducer from "./sizeGuideSlice";
 import searchQuerryReducer from "./searchQuerrySlice";
+import headerReducer from "./headerSlice";
 import storage from "redux-persist/lib/storage";
 import {
     persistStore,
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
     searchWindowReducer,
     sizeGuideReducer,
     searchQuerryReducer,
+    headerReducer
 })
 
 const persistConfig = {

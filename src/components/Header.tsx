@@ -12,6 +12,7 @@ import { toggleVisibility } from '../store/navbarSlice'
 function Header() {
 
   const { products } = useAppSelector(state => state.productsReducer)
+  const { isHeaderVisible } = useAppSelector(state => state.headerReducer)
 
   const productsInBag = products.filter(product =>
     product.sizes.some(size => size.inBag)
@@ -34,8 +35,7 @@ function Header() {
   }, [productsInBag])
 
   return (
-
-    <header >
+    <header className={isHeaderVisible ? '' : 'hidden'} >
 
       <div className='headerFirst'>
         <svg onClick={() => dispatch(toggleVisibility())} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-3">

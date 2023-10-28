@@ -14,6 +14,7 @@ import Clothes from './pages/Clothes';
 import Accesories from './pages/Accessories';
 import NewsPage from './pages/NewsPage';
 import { useAppSelector } from './hooks/redux';
+import CardDetails from './pages/CardDetails';
 
 function App() {
 
@@ -98,6 +99,10 @@ function App() {
                                 <ProductPage
                                     isMobile={isMobile}
                                 />}
+                        />
+                        <Route
+                            path='/CardDetails'
+                            element={<CardDetails />}
                         />
                         {/* <Route
                             path='/Sales'

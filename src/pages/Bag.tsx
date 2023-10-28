@@ -3,6 +3,9 @@ import '../styles/App.css';
 import { IProduct } from '../types/types'
 import ProductItemInBag from '../components/ProductItemInBag'
 import { useAppSelector } from '../hooks/redux';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { toggleHeaderVisibility } from '../store/headerSlice';
 
 function Bag() {
 
@@ -11,7 +14,16 @@ function Bag() {
     product.sizes.some(size => size.inBag)
   )
 
+  const dispatch = useDispatch()
+
   const [orderPrice, setOrderPrice] = useState<number>(0)
+
+  const navigate = useNavigate()
+
+  const handleCheckoutClick = () => {
+    navigate(`/CardDetails`)
+    dispatch(toggleHeaderVisibility())
+  }
 
   // TODO: setOrderPrice
   // useEffect(() => {
@@ -75,7 +87,7 @@ function Bag() {
                 </div>
               </div>
               <div className='orderButton'>
-                <button>Checkout</button>
+                <button onClick={handleCheckoutClick} >Checkout</button>
               </div>
             </div>
 

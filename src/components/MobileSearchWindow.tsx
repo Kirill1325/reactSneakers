@@ -14,22 +14,16 @@ function MobileSearchWindow() {
     const { searchHistory } = useAppSelector(state => state.searchQuerryReducer)
     const dispatch = useDispatch()
 
-    // console.log(searchHistory)
-
     const handleCloseWindow = () => {
         dispatch(setSearchQuerry(''))
         dispatch(toggleVisibility())
     }
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        // console.log(e.target.value)
         dispatch(setSearchQuerry(e.target.value))
     }
 
-    // const [searchHistory, setSearchHistory] = useState([''])
-
     useEffect(() => {
-        // console.log(searchQuerry)
         const id = setTimeout(() => {
             dispatch(setSearchHistory(searchQuerry))
         }, 1000)
@@ -38,15 +32,6 @@ function MobileSearchWindow() {
             clearTimeout(id)
         }
     }, [searchQuerry])
-
-    // useEffect(() => {
-    //     const data = localStorage.getItem('SEARCH_HISTORY')
-    //     if (data !== null) setSearchHistory(JSON.parse(data))
-    // }, [])
-
-    // useEffect(() => {
-    //     localStorage.setItem('SEARCH_HISTORY', JSON.stringify(searchHistory))
-    // }, [searchHistory])
 
     const sortedProducts = search(products, searchQuerry)
 
